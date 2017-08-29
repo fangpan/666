@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="./images/index/nav_logo.png">
+    <title>英迈信息-领先的互联网解决方案及技术提供商</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="武汉英迈、武汉英迈信息科技有限公司、英迈信息、互联网技术服务商、解决方案服务商"/>
+    <meta name="description" content="武汉英迈信息科技有限公司，是一家集互联网开发、移动终端开发、电子商务运营 、大数据分析等服务于一身的领先的互联网解决方案及技术提供商，致力于向客户提供专业的互联网解决方案服务。" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
+    <link rel="stylesheet" type="text/css" href="css/jquery.Scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <nav class="navbar" id="sidebar-wrapper" role="navigation">
+            <ul class="leftNav" style="width: 260px;">
+                <li class="sidebar-brand">
+                    <a href="index2.html"><img src="images/left_nav/left_nav_logo.png" alt="" width="180">  </a>          
+                </li>
+                <li>
+                    <a href="index2.html"> 首页</a>
+                </li>
+                <li>
+                    <a href="aboutus.html"> 关于我们</a>
+                </li>
+                <li>
+                    <a href="news.html">新闻动态</a>
+                </li>
+                <li>
+                    <a href="partner.html">客户和合作伙伴</a>
+                </li>
+                <li>
+                    <a href="solution.html">行业解决方案</a>
+                </li>
+                <li class="pagelIActive">
+                    <a href="personnel.html">广纳英才</a>
+                </li>
+               <li class="H5_code">
+                   <img src="images/left_nav/H5_code.png" alt="" width="160"> 
+               </li>
+               <li class="lookus">
+                 扫描二维码，关注我们吧~
+               </li>
+               <li class="left_logotext">互联网解决方案及技术提供商</li>
+               <li style="width: 260px;margin-left: -20px;">武汉英迈信息科技有限公司</li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-content">
+           
+           <!-- 右侧头部 -->
+          <div class="head top_con">
+            <img src="images/left_nav/return.png" class="hamburger" id="returnpng" data-toggle="offcanvas">
+            <img src="images/left_nav/openbag.png" class="hamburger" id="openbagpng" data-toggle="offcanvas" style="display:none;">
+            <a href="index2.html" class="returnIndex"><span>返回首页</span> </a> 
+            <span class="caseList">招聘列表</span>
+           </div><!-- 右侧头部 -->
+
+            <div class="right_con">
+                <h3><span>前端开发工程师</span>&nbsp;&nbsp;&nbsp;<span>2 名</span> </h3>
+
+                 <p style="color:#7F7C77;">2017-08-15 10:00</p>
+                 <h5 class="need_title">职位要求：</h5>
+                 <ol class="need_alllist">
+                   <li>能够根据设计，规范化web前端页面，展现JavaScript效果</li>
+                   <li>熟练掌握web前端跨平台开发技术，如HTML5/CSS/CSS3/Javascript；</li>
+                   <li>熟练前台框架Bootstrap,Jquery等；</li>
+                   <li>熟练Photoshop、DW等软件的使用；</li>
+                   <li>熟练运用浏览器兼容技术，熟练运用响应式设计，熟练进行前端性能优化；</li>
+                 </ol>
+                 <h5 class="need_title">岗位要求：</h5>
+                 <ol class="need_alllist">
+                   <li>2年以上工作经验；</li>
+                   <li>有团队协作精神，敬业精神和沟通协调能力；</li>
+                   <li>善于学习，能主动学习专研与工作相关的知识；</li>
+                   <li>有过系统应用的美化设计经验者优先；</li>
+                   <li>有Html5、WeX5成熟作品者优先。</li>
+                 </ol>
+                 <div class="needabout_img">
+                   <img src="images/join_us/web.png" alt="">
+                 </div>
+           </div><!-- right_con -->
+       </div>
+   </div><!--wrapper -->
+</body>
+</html>
+
+<script src="js/jquery-2.1.4.min.js"></script> 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+      var trigger = $('.hamburger'),
+          overlay = $('.overlay'),
+         isClosed = false;
+
+        trigger.click(function () {
+          hamburger_cross();      
+        });
+
+        function hamburger_cross() {
+
+          //导航栏打开状态
+          
+          if (isClosed == true) {          
+    
+            trigger.removeClass('is-open');
+            trigger.addClass('is-closed');
+            
+            $("#page-content").removeClass("contentMove")
+
+             $("#openbagpng").hide();
+             $("#returnpng").show();
+             $(".returnIndex").hide();
+               $(".needabout_img").removeClass("needimg_active");
+
+             isClosed = false;
+
+          } else {  
+
+            //导航栏关闭状态
+            
+            trigger.removeClass('is-closed');
+            trigger.addClass('is-open');
+
+            $("#page-content").addClass("contentMove") 
+
+            $("#returnpng").hide();
+            $("#openbagpng").show();
+            $(".returnIndex").show();
+            
+            $(".needabout_img").addClass("needimg_active");
+
+             isClosed = true;
+          }
+      }
+      
+      $('[data-toggle="offcanvas"]').click(function () {
+            $('#wrapper').toggleClass('toggled');
+
+      });  
+
+
+   $(".caseList").click(function(){
+        window.location.href="personnel.html"
+     })
+
+    });
+</script>
+
+
+
+
+
