@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+     <link rel="icon" size="any" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/header.css">  
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/zhuce.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/zhuce.js"></script>
+
+
+</head>
+<body>
+    
+  <div class="top">
+        <div class="topcon">
+            <div class="topl fl">
+                <span>您好，欢迎来本网站！</span>
+                <a href="enter.html">[请登录]</a>
+                <a href="zhuce.html">[免费注册]</a>
+            </div>
+
+            <div class="topr fr">
+                    <a href="">我的收藏 |</a>
+                    <a href="">站内短信 |</a>
+                    <a href="">我的点评 |</a>
+                    <a href="">我的积分 |</a>
+                    <a href="">会员中心</a>
+            </div>
+        </div>
+
+    </div><!-- top 完-->
+
+<!--开始搜索栏-->
+ 
+  <div class="search">
+      <a href="index.html"><img src="images/logo001.png" alt="" class="fl"></a>
+
+      <div class="input fl">
+        <div>
+          <input type="text" placeholder="请输入关键字" class="text fl"><input type="submit" value="搜 索" class="submit fl">
+        </div> 
+        <ul>
+            <li>热门搜索：</li>
+            <li>连衣裙秋 /</li>
+            <li>牛仔裤男 /</li>
+            <li>小白鞋 /</li>
+            <li>平板电脑 /</li>
+            <li>运动鞋</li>
+        </ul>
+      </div>
+       
+      <div class="car fl">   
+         <img src="images/car001.png" alt="">
+         <a href="">去购物车结算</a>
+      </div>
+      <img src="images/ewm001.png" alt="" class="ewm fr"> 
+  </div>
+   
+   <div class="content">
+       <img src="images/zhuce00.jpg" alt="" height="600px" width="720px" class="fl">
+       <div class="zhuce fr">
+           <h4>30秒快速注册，加入利惠你商城</h4>
+            <p class="p1">
+               <a href="">用手机注册</a>
+            </p>
+
+         <form name="" action="" method="" onsubmit="return checkForm()">
+        
+           <p> 
+              <label for="phone" class="label1">手机号 :</label>
+              <input type="text" class="phone" onfocus="focus_phone()" onblur="blur_phone()" value="" placeholder="请填写手机号码">
+              <span id="result_phone"></span>
+          </p>
+          
+          <p class="p2"> 
+              <label for="yanz" class="label2">验证码 :</label>
+              <input type="text" class="yanz" onfocus="focus_yanz()" onblur="blur_yanz()" value="" placeholder="请填写图片验证码">
+             <img src="images/zhuce03.jpg" alt="" class="yanzimg">
+              <span>换一张</span>
+          </p>
+          
+          <p> 
+              <label for="password" class="label3">密码 :</label>
+              <input type="password" class="password" onfocus="focus_password()" onblur="blur_password()" value="" placeholder="6-16位字母和数字的组合">
+              <span id="result_password"></span>
+          </p>
+          
+            <p> 
+              <label for="password" class="label4">确认密码 :</label>
+              <input type="password" class="password2" onfocus="focus_password2()" onblur="blur_password2()" value="" placeholder="再次输入密码">
+              <span id="result_password2"></span>
+          </p>
+
+      <p class="p5">
+          <input type="checkbox" class="inputlast" checked="checked"> 
+          <span>同意《商城用户协议》《隐私权说明》</span>
+      </p>
+
+      <p class="lastp">
+         <label for="sub" ></label>
+         <input type="submit" id="sub" value="注 册">
+      </p>
+
+      </form>
+       
+    </div>
+
+   </div>
+
+ <!--页脚开始-->
+
+<div class="foot1">
+     <div class="foot1con">
+         <div class="foot1con1 fl">
+           <h4>正品保障</h4>
+           <p>确保所有产品都是原装正品</p>
+         </div>
+         <div class="foot1con2 fl">
+           <h4>8天无条件退换货</h4>
+           <p>买的放心，用的开心</p>
+         </div>
+         <div class="foot1con3 fl">
+           <h4>精美包装</h4>
+           <p>统一的包装呵护商品</p>
+         </div>
+         <div class="foot1con4 fl">
+           <h4>正规发票</h4>
+           <p>机打发票，附箱送达</p>
+         </div>
+     </div>
+   
+</div> <!--foot1结束-->
+
+<div class="foot2">
+   <div class="foot2con">
+      <div class="help fl">
+          <h4>帮助中心</h4>
+          <ul>
+            <li>购物指南</li>
+            <li>配送方式</li>
+            <li>支付方式</li>
+            <li>常见问题</li>
+          </ul>
+      </div>
+
+      <div class="help fl">
+          <h4>售后服务</h4>
+          <ul>
+            <li>购物指南</li>
+            <li>配送方式</li>
+            <li>支付方式</li>
+            <li>手机寄修服务</li>
+          </ul>
+      </div>
+
+      <div class="help fl">
+          <h4>技术支持</h4>
+          <ul>
+            <li>购物指南</li>
+            <li>配送方式</li>
+            <li>支付方式</li>
+            <li>常见问题</li>
+          </ul>
+      </div>
+
+      <div class="help fl">
+          <h4>关于商城</h4>
+          <ul>
+            <li>购物指南</li>
+            <li>配送方式</li>
+            <li>支付方式</li>
+            <li>常见问题</li>
+          </ul>
+      </div>
+
+      <div class="help fl">
+          <h4>关注我们</h4>
+          <ul>
+            <li>购物指南</li>
+            <li>配送方式</li>
+            <li>支付方式</li>
+            <li>商城手机版</li>
+          </ul>
+      </div>
+   </div>
+</div>
+
+<div class="footer">
+   <ul>
+     <li>关于我们  |</li>
+     <li>购物指南  |</li>
+     <li>支付方式  |</li>
+     <li>配送说明  |</li>
+     <li>售后服务  |</li>
+     <li>联系方式  |</li>
+     <li>投诉建议  |</li>
+     <li>诚聘英才  |</li>
+     <li>友情链接   </li>
+   </ul>
+</div>
+            
+<div class="foottext">
+  <p>Copyright ? 2009-2010 All Rights Reserved. 利惠你商城网站管理系统 版权所有   鄂ICP备01234567号
+</p>
+  <p>服务时间：周一至周日 08:30 — 20:00  全国订购及服务热线：021-98765432 </p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+
+.content{
+      width: 1200px;
+      height: 692px;
+      margin: 0 auto;
+}
+.nei{border:1px solid #D2D2D2;
+   width: 300px;
+   height: 270px;
+   overflow: hidden;
+}
+.nei>h4,.hot>h4{
+      display: block;
+      width: 270px;
+      height: 44px;
+      background: #C30D23;
+      padding-left: 30px;
+      line-height: 44px;
+      color: #fff;
+}
+.nei>ul li{
+   font-size: 14px;
+   line-height: 27px;
+   padding-left: 30px;
+   color: #444;
+}
+.hot{border:1px solid #D2D2D2;
+   width: 300px;
+   height: 428px;
+   margin-top: 5px;
+}
+.honcon{margin-top: 20px;
+     width: 300px;
+     height: 75px;
+     overflow: hidden;
+}
+
+.honcon img{margin-left: 10px;}
+
+.honcon p{display: inline-block;
+      width: 210px;
+      margin-left: 10px;
+      font-size: 13px;
+      line-height: 23px;
+  }
+.honcon>h5{display: inline-block;
+      margin-left: 10px;
+      color: #FA283C;
+      margin-top: 5px;
+    }
+.contentr{
+        width:888px;
+        height:688px;
+        margin-left: 5px;}
+.contentr>p{
+  display:inline-block;
+  width:865px;
+  height:35px;
+  background:#C30D23;
+  line-height:35px;
+  color:#fff;
+  padding-left:30px;
+}
+.conrnext{position:relative;
+     width:895px;
+     height:162px;
+     background:#F5F5F5;
+     border-bottom:1px solid #E5E5E5;
+     overflow: hidden;
+}
+.conrnext:last-child{border-bottom:none;}
+
+.conrnext>input{position:absolute;
+     top:20px;
+     left:30px;
+}
+.conrnext>img{margin-left:50px;
+       float:left;
+       margin-top:20px;
+ }
+.textl{
+   margin-top: 30px;
+   margin-left: 30px;
+   font-size: 14px;
+   width: 500px;
+   overflow: hidden;
+   height: 160px;
+}
+.textl>h4{color: #444;}
+
+.textl p{margin-top: 20px;}
+
+.textl p:last-child{margin-top: 30px;}
+
+.textl p>a{
+    color: #C30D23;
+    font-weight: 600;
+    padding-right: 50px;
+}
+.textr{ font-size: 14px;
+  width: 200px;
+  height: 160px;
+}
+.textr .p1{
+   margin-top: 30px;
+}
+.textr .p1 span{color: #C30D23;
+   font-size: 18px;
+   font-weight: 600;}
+
+.textr .p2{background: url(../images/car001.png) no-repeat left center;
+    margin-top: 50px;
+   }
+.textr .p2 a{  
+   color: #C30D23;
+    padding-left: 28px;
+}

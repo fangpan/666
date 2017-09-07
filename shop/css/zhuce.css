@@ -1,0 +1,103 @@
+
+
+.content{
+  width: 1200px;
+  height: 608px;
+  margin: 0 auto;
+}
+.zhuce{border: 1px solid #ccc;
+  width: 470px;
+  height: 500px;
+}
+.zhuce h4{
+  display: inline-block;
+  width: 470px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background: #F1F1F1;
+  color: #666;
+}
+.p1{
+   width: 250px;
+   height: 40px;
+   line-height: 40px;
+   text-align: center;
+   background: url(../images/zhuce02.png) no-repeat 70px center;
+   border:1px solid #C30D23;
+   margin: 20px auto;
+   padding-left: 20px;
+}
+.p1 a{
+    color: #C30D23;
+}
+
+form p label{display: inline-block;
+    text-align: right;
+    width: 100px;
+  margin-left: 10px;
+}
+
+form p .label1{background: url(../images/xinhao.jpg) no-repeat 20px center;
+}
+form p .label2{background: url(../images/xinhao.jpg) no-repeat 20px center;}
+form p .label3{background: url(../images/xinhao.jpg) no-repeat 35px center;}
+form p .label4{background: url(../images/xinhao.jpg) no-repeat left center;}
+
+form input{
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+}
+form p{
+  margin-top: 20px;
+}
+form .p2{
+  position: relative;
+}
+form .yanzimg{
+  position: absolute;
+ top: 0px;
+
+}
+.p2 span{
+  display: inline-block;
+  margin-left: 108px;
+  color: #C30D23;
+}
+.p5{
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+  
+}
+.inputlast{
+   width: 17px!important;
+   margin-left: 120px;
+}
+
+.p5 span{display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+   position: absolute;
+   width: 300px;
+   top: 0px;
+   left: 150px;
+
+}
+.lastp input{
+   width: 300px;
+   height: 40px;
+   line-height: 40px;
+   text-align: center;
+   background: #C30D23;
+   color: #fff;
+   font-weight:  600;
+   border: 0;
+}
+
+
+
+

@@ -1,0 +1,253 @@
+
+
+.nav{background: #C30D23;
+    width: 100%;
+    min-width: 1200px;
+    height: 50px;
+}
+.navcon{
+    width: 1200px;
+    height: 50px;
+    margin:0 auto;
+}
+.navcon>ul>li{float: left;
+  position: relative;
+  height: 50px;
+}
+
+.navcon>ul>li>a{display: inline-block;
+    width: 103px;
+    height: 50px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 600;
+  overflow: hidden;
+}
+.navcon>ul>li>a:hover{color: #C30D23;
+ background: #fff;
+}
+
+.navcon>ul>li>.firsta{ 
+    width: 170px!important;}
+
+.ulnext{width: 170px;
+      display: none;  
+      z-index: 9;
+      position: absolute;
+      top: 50px;
+} 
+.shopcon{position: absolute;
+        top: 0px;
+        left: 170px;
+        display: none;
+        background: blue;
+        width: 800px;
+        height: 400px;
+        z-index: 9;
+        color: #fff;
+      }
+
+.ulnext li a{
+      display:  block;
+    height: 40px;
+    line-height: 40px;
+     color: #fff;
+     text-align: left;
+     padding-left: 32px;
+}
+.ulnext li {
+     background-color: #C30D23;
+    list-style: none;
+     width: 170px;
+}
+.ulnext li a:hover{color: #C30D23;
+  background: #fff;
+  border-left: 1px solid #C30D23;
+}
+.con{
+ margin:0 auto;
+position: relative;
+font-size: 0;
+clear: both;
+}
+
+.confoot{
+    position: absolute;
+   margin-left: 46%;
+   bottom: 10px;
+}
+.yuan{width: 200px;
+    margin:0 auto;
+}
+.yuan li{
+    float: left;
+    list-style: none;
+    margin-left: 20px;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background: #D6D6BD;
+    cursor: pointer;
+}
+.on{
+    background-color: #32AEE9!important;
+}
+.con>img{display: none;
+     width: 100%;
+     height: 400px;
+     min-width: 1200px; 
+}
+.conimage{width: 1230px;
+margin:50px auto;
+height: 262px;
+}
+
+.conimage img{float: left;
+  margin-left: 20px;
+}
+.like{clear: both;
+  width: 1200px;
+  height: 530px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.like h2{display: block;
+  margin: 50px 15px;
+  color: #555555;
+}
+.like .one{
+  width: 282px;
+  height: 400px;
+  margin-left: 16px;
+}
+.one p{width: 200px;
+   display: block;
+   margin: 10px auto;
+   color: #666;
+   font-size: 13px;
+}
+.buy{
+ background: url(../images/buy001.jpg) no-repeat right center;
+ display: inline-block;
+ width: 200px;
+ height: 30px;
+ line-height: 30px;
+}
+.buy span{ color: #C30D23;
+  font-size: 20px;
+  font-weight: 600;
+}
+.content{
+  width: 1200px;
+  height: 440px;
+  margin: 100px auto;
+}
+.left{
+  width: 273px;
+  height: 440px;
+}
+.left p{background: url(../images/bg00.png)no-repeat;
+  display: block;
+  width: 159px;
+  height: 38px;
+  padding-left: 45px;
+  line-height: 38px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+.lunbocon{
+    width: 272px;
+    height: 320px;
+   position: relative;
+}
+.lunbofoot{
+    position: absolute;
+    width: 272px;
+   bottom: 5px;
+}
+.lunboyuan{width: 130px;
+    margin:0 auto;
+}
+.lunboyuan li{
+    float: left;
+    list-style: none;
+    margin-left: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+}
+.lunon{
+    background-color: #f00!important;
+}
+.lunbocon>img{display: none;}
+
+.right{
+width: 925px;
+height: 440px;
+}
+.tab{width: 600px;
+height: 38px;
+margin-left: 338px;
+}
+.tabtab{border-bottom: 1px solid #E74EF1;
+  width: 916px;
+  overflow: hidden;
+}
+.tab>li{
+  float: left;
+  display: block;
+  width: 72px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.concon{
+width: 925px;
+height: 400px;
+display: none;
+clear: both;
+}
+.select{
+ color: #E74EF1;
+ border: 1px solid #E74EF1;
+ border-bottom: 0!important;
+}
+.love{clear: both;
+  width: 1200px;
+  margin: 0 auto;
+}
+.conone{border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  height: 198px;
+  width:228px;
+  overflow: hidden;
+}
+.conone img{margin-top: 10px;}
+
+.conone p{
+   width: 200px;
+   display: block;
+   margin-left: 40px;
+   margin-top: 5px;
+   color: #666;
+   font-size: 13px;
+}
+.conone .money{
+   color: #C30D23;
+   font-size: 16px;
+}
+
+.return{
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+.return img{border: 0 none}
+
