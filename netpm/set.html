@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>NetPM</title>
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+	</head>
+	
+  <body ng-app="myApp" ng-controller="myCtrl">
+	<!--头部导航-->
+	<div class="container-fluid topnav">
+		<div class="row">
+			<div class="navleft pull-left">
+				<h3>NetPM</h3>
+			</div>
+			<div class="navright pull-right">
+				<h3>
+					<ul>
+						<li><i class="fa fa-user"></i></li>
+						<li><i class="fa fa-cog"></i></li>
+						<li><i class="fa fa-home"></i></li>
+				   </ul>
+				</h3>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row shuju">
+		   <ul>
+		     <li><i class="fa fa-circle" style="color:#FC0102 ;"></i><span>12</span></li>
+			 <li><i class="fa fa-circle" style="color:#F9600C ;"></i><span>10</span></li>
+			 <li><i class="fa fa-circle" style="color:#FCDA30 ;"></i><span>8</span></li>
+		   </ul>
+		</div>
+	</div><!--头部导航-->
+	
+	<div class="container-fluid con">
+		<div class="content">
+			<div class="contt">
+			    <ul class="tabtitle">
+			      <li class="select">链路</li>
+			      <li class="">监控组</li>
+			      <li class="">应用</li>
+			    </ul>
+		    </div>
+		    <div class="clearfix"></div>
+		   	
+		        <!--链路-->
+			    <div class="tabcon" style="display:block;"> 
+			    	<div class="row">
+			    		<!--左边列表-->
+			    		 <div class="col-md-2 col-sm-2 col-xs-2 leftcon">
+			    		 	<ul class="leftlb" >	
+			    		 		<li ng-repeat="item in linkRoadList" mouse-over-leave hover="hover" >
+			    		 			<span ng-bind="item.name" ng-click="linkInfo(item,$index)"></span><i ng-show="hover" class="fa fa-close pull-right" data-toggle="modal" data-target="#delllmodel" ng-click="delLinkModal(item,$index)"></i>
+			    		 		</li>
+			    		 	</ul>
+			    		 	<p ng-click="addLinkRoad()"><i class="fa fa-plus"></i><span>新增链路</span></p>
+			    		 </div>
+			    		 <!--右边内容-->
+			    		 <div class="col-md-10 col-sm-10 col-xs-10 luform llform">
+			    		 	<form action="">
+			    		 		<p>
+			    		 			<label for="">链路名称</label>
+			    		 			<input type="text" placeholder="请输入链路名称" ng-model="linkItem.name" />
+			    		 		</p>
+			    		 		<div id="netcarddiv">
+			    		 			<label for="" class="pull-left netcard">选择网卡</label>
+			    		 			<ul class="pull-left">
+			    		 			<li class="chose">
+				    		 			<h5 class="card pull-left">
+				    		 				<input type="radio" name="card" value="netcard1" id="netcard1" ng-model="linkItem.netcard" ng-click="netCardChange(0)"/ >
+				    		 			    <span >网卡1</span>
+					    		 		</h5>
+					    		 		 <ul class="pull-left cans">
+					    		 		 	<li>
+					    		 			    <span >流量 : 12 Mbps</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >IP地址 : 192.168.0.2</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >MAC地址 : 192.168.0.2</span>
+					    		 			</li>
+				    		 		    </ul>
+			    		 			</li>
+			    		 			<div class="clearfix"></div>
+			    		 			<li class="chose">
+				    		 			<h5 class="card pull-left">
+				    		 				<input type="radio" name="card" value="netcard2" id="netcard2" ng-model="linkItem.netcard" ng-click="netCardChange(1)"/ >
+				    		 			    <span >网卡2</span>
+					    		 		</h5>
+					    		 		 <ul class="pull-left cans">
+					    		 		 	<li>
+					    		 			    <span >流量 : 12 Mbps</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >IP地址 : 192.168.0.2</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >MAC地址 : 192.168.0.2</span>
+					    		 			</li>
+				    		 		    </ul>
+			    		 			</li>
+			    		 			<div class="clearfix"></div>
+			    		 			<li class="chose">
+				    		 			<h5 class="card pull-left">
+				    		 				<input type="radio" name="card" value="netcard3" id="netcard3" ng-model="linkItem.netcard" ng-click="netCardChange(2)"/ >
+				    		 			    <span >网卡3</span>
+					    		 		</h5>
+					    		 		 <ul class="pull-left cans">
+					    		 		 	<li>
+					    		 			    <span >流量 : 12 Mbps</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >IP地址 : 192.168.0.2</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >MAC地址 : 192.168.0.2</span>
+					    		 			</li>
+				    		 		    </ul>
+			    		 			</li>
+			    		 			<div class="clearfix"></div>
+			    		 			<li class="chose">
+				    		 			<h5 class="card pull-left">
+				    		 				<input type="radio" name="card" value="netcard4" id="netcard4" ng-model="linkItem.netcard" ng-click="netCardChange(3)"/ >
+				    		 			    <span >网卡4</span>
+					    		 		</h5>
+					    		 		 <ul class="pull-left cans">
+					    		 		 	<li>
+					    		 			    <span >流量 : 12 Mbps</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >IP地址 : 192.168.0.2</span>
+					    		 			</li>
+					    		 			<li>
+					    		 			    <span >MAC地址 : 192.168.0.2</span>
+					    		 			</li>
+				    		 		    </ul>
+			    		 			</li>
+			    		 			</ul>
+			    		 			</div>
+			    		 		<div class="clearfix"></div>
+			    		 		<p class="vlan">
+			    		 			<label for="">开启Vlan识别</label>
+			    		 			<input type="checkbox" name="" id="" value="" checked="checked"/ >
+			    		 		</p>
+			    		 		<div>
+			    		 			<label for="" class="pull-left" style="display: block;">
+			    		 				<span>警告规则</span></br></br>
+			    		 				<span data-toggle="modal" data-target="#llmodel" ng-click="openAddLinkRoadRuleModal()"><i class="fa fa-plus"></i> 新增</span>
+			    		 			</label>
+			    		 		   <table class="pull-left warntab" id="lutab">
+				    		 			<tr class="hidetr">
+				    		 				<td>警告规则</td>
+				    		 				<td>普通</td>
+				    		 				<td>重要</td>
+				    		 				<td>紧急</td>
+				    		 				<td> </td>
+				    		 			</tr>
+				    		 		    <tr ng-repeat="item in linkItem.linkRoadRuleList">
+				    		 				<td ng-bind="item.select"></td>
+				    		 				<td ng-bind="item.pt"></td>
+				    		 				<td ng-bind="item.zy"></td>
+				    		 				<td ng-bind="item.jj"></td>
+				    		 				<td align=center><i class="fa fa-close"  ng-click="deleteLinkRoadRule($index)"></i></td>
+				    		 			</tr>	
+			    		 		</table>
+			    	          </div>
+			    		 	</form>
+			    		 	<div class="clearfix"></div>
+			    		 	<p class="sub text-left">
+			    		 		<input type="submit" name="" id="" value="确定" style="background:#3E85D7;" ng-click="updateLinkRoadItem()"/>
+			    		 		<input type="button" name="" id="" value="取消" style="background:#5F6A70;"/>
+			    		 	</p>
+			    		 </div>
+			         </div>
+			      <!-- 链路规则模态框（Modal） -->
+				  <div class="modal fade" id="llmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<i class="fa fa-close close" data-dismiss="modal" aria-hidden="true"></i>
+								<h5 class="modal-title addtit">
+									添加告警规则
+								</h5>
+							</div>
+							<div class="modal-body">
+							  <form class="warnzb">
+							  	<p>
+							  		<label for="">告警指标</label>
+							  		<select  ng-model="linkRoadRuleItem.select">
+							  			<option value="重传包数">重传包数</option>
+							  			<option value="流量">流量</option>
+							  			<option value="包速率">包速率</option>
+							  			<option value="中断率">中断率</option>
+							  		</select>
+							  	</p>
+							  	<p>
+							  		<label for="">普通</label>
+							  		<input type="" value="" placeholder="100" ng-model="linkRoadRuleItem.pt"/>
+							  	</p>
+							  	<p>
+							  		<label for="">重要</label>
+							  		<input type="" value="" placeholder="200" ng-model="linkRoadRuleItem.zy"/>
+							  	</p>
+							  	<p>
+							  		<label for="">紧急</label>
+							  		<input type="" value="" placeholder="300" ng-model="linkRoadRuleItem.jj"/>
+							  	</p>
+			               </form>
+			               <p class="sub text-right subfoot">
+			    		 	  <input type="button" name="addwarn" id="addbtn" value="确定" style="background:#3E85D7;" data-dismiss="modal" aria-hidden="true" ng-click="addLinkRoadRule()">
+			    		   </p>	
+					   </div>
+				    </div>
+			     </div>
+			    </div>  <!-- 链路规则模态框（Modal） -->
+			    
+			    <!-- 删除确认模态框（Modal） -->
+				  <div class="modal fade" id="delllmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+					<div class="modal-dialog delcon">
+					    <h5>
+							是否删除 " <span ng-bind="deleteLinkItem.name">  </span> "
+						</h5>
+						 <p class="sub text-center subfoot delfoot">
+		    		 		 <input type="button" name="addwarn" id="addbtn" value="确定" style="background:#3E85D7;" data-dismiss="modal" aria-hidden="true" ng-click="delLink()">
+		    		 		 <input type="button" name="" id="" value="取消" style="background:#5F6A70;" data-dismiss="modal" aria-hidden="true"/>
+		    		     </p>	
+				    </div>
+			    </div><!--删除确认模态框（Modal） -->
+			    </div>	
+			    <!--链路完-->
+			    	
+			    <!--监控组-->
+			    <div class="tabcon">
+			    	<div class="row">
+			    		<!--左边列表-->
+			    		 <div class="col-md-2 col-sm-2 col-xs-2 leftcon leftMenu" >
+			    		 	<ul class="leftlb">
+			    		 		<li ng-repeat="jk in jkArray" mouse-over-leave hover="hover">
+			    		 			<span ng-bind="jk.name" ng-click="jkInfo(jk,$index)"></span><i ng-show="hover" class="fa fa-close pull-right" data-toggle="modal" data-target="#delmodel"  
+			    		 			ng-click="delJkModal(jk,$index)"></i>		
+			    		 		</li>
+			    		 	</ul>
+			    		 	<p ng-click="addJkButton()"><i class="fa fa-plus"></i><span>新增监控</span></p>
+			    		 </div><!--左边列表-->
+			    		 <!--右边内容-->
+			    		 <div class="col-md-10 col-sm-10 col-xs-10 luform jkform">
+			    		 	<form action="">
+			    		 		<p>
+			    		 			<label for="">监控组名称</label>
+			    		 			<input type="text" placeholder="监控A" ng-model="jkItem.name"/>
+			    		 		</p>
+			    		 		<ul class="leixing">
+			    		 			<li>
+			    		 				<label for="">IP 地址</label>
+			    		 			    	<input type="text" placeholder="IP / 掩码" ng-model="jkItem.ip"/>
+			    		 			</li>
+			    		 			<li>
+			    		 				<label for="">监控类型</label>
+			    		 			    <select name="" id="" ng-model="jkItem.net">
+			    		 			    	<option value="子网1">
+			    		 			    		子网1
+			    		 			    	</option>
+			    		 			    	<option value="子网2">
+			    		 			    		子网2
+			    		 			    	</option>
+			    		 			    	<option value="子网3">
+			    		 			    		子网3
+			    		 			    	</option>
+			    		 			    </select>
+			    		 			</li>
+			    		 		</ul>
+			    		 		<div class="clearfix"></div>
+			    		 	    <p>
+		    		 	    	    <label for="">关联链路</label>
+		    		 			    <select name="" id="" ng-model="jkItem.linkRoad">
+		    		 			    	<option value="链路A">
+		    		 			    		链路A
+		    		 			    	</option>
+		    		 			    	<option value="链路B">
+		    		 			    		链路B
+		    		 			    	</option>
+		    		 			    	<option value="链路C">
+		    		 			    		链路C
+		    		 			    	</option>
+		    		 			    </select>
+			    		 	    </p>
+			    		 		<div class="clearfix"></div>
+			    		 		<div>
+			    		 			<label for="" class="pull-left" style="display: block;">
+			    		 				<span>警告规则</span></br></br>
+			    		 				<span data-toggle="modal" data-target="#myModal" ng-click="openAddJkRuleModal()"><i class="fa fa-plus"></i> 新增</span>
+			    		 			</label>
+			    		 		   <table class="pull-left warntab" id="warntab">
+				    		 			<tr class="hidetr">
+				    		 				<td>警告规则</td>
+				    		 				<td>普通</td>
+				    		 				<td>重要</td>
+				    		 				<td>紧急</td>
+				    		 				<td> </td>
+				    		 			</tr>
+				    		 		    <tr ng-repeat="item in jkItem.ruleList" >
+				    		 				<td ng-bind="item.select"></td>
+				    		 				<td ng-bind="item.pt"></td>
+				    		 				<td ng-bind="item.zy"></td>
+				    		 				<td ng-bind="item.jj"></td>
+				    		 				<td align=center><i class="fa fa-close" ng-click="deleteJkRuleItem($index)"></i></td>
+				    		 			</tr>	
+			    		 		</table>
+			    	          </div>
+			    		 	</form>
+			    		 	<div class="clearfix"></div>
+			    		 	<p class="sub text-left">
+			    		 		<input type="button" name="" id="" value="确定" style="background:#3E85D7;" ng-click="updateJkRuleItem()"/>
+			    		 		<input type="button" name="" id="" value="取消" style="background:#5F6A70;"/>
+			    		 	</p>
+			    		 </div><!--右边部分-->
+			    	</div><!--row-->
+	
+			    <!-- 告警规则模态框（Modal） -->
+				  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<i class="fa fa-close close" data-dismiss="modal" aria-hidden="true"></i>
+								<h5 class="modal-title addtit" id="myModalLabel">
+									添加告警规则
+								</h5>
+							</div>
+							<div class="modal-body">
+							  <form class="warnzb">
+							  	<p>
+							  		<label for="">告警指标</label>
+							  		<select  ng-model="jkRuleItem.select">
+							  			<option value="重传包数">重传包数</option>
+							  			<option value="流量">流量</option>
+							  			<option value="包速率">包速率</option>
+							  			<option value="中断率">中断率</option>
+							  		</select>
+							  	</p>
+							  	<p>
+							  		<label for="">普通</label>
+							  		<input type="" value="" placeholder="100" ng-model="jkRuleItem.pt"/>
+							  	</p>
+							  	<p>
+							  		<label for="">重要</label>
+							  		<input type="" value="" placeholder="200" ng-model="jkRuleItem.zy"/>
+							  	</p>
+							  	<p>
+							  		<label for="">紧急</label>
+							  		<input type="" value="" placeholder="300" ng-model="jkRuleItem.jj"/>
+							  	</p>
+			              </form>
+			              <p class="sub text-right subfoot">
+		    		 		 <input type="button" name="addwarn" id="addbtn" value="确定" style="background:#3E85D7;" data-dismiss="modal" aria-hidden="true" ng-click="addJkRuleItem()">
+		    		 		<!--<input type="submit" name="" id="" value="取消" style="background:#5F6A70;"/>-->
+			    		  </p>	
+					   </div><!--modal-body-->
+				    </div>
+				   </div>
+			     </div><!--告警规则模态框（Modal） -->
+			     
+			     <!-- 删除确认模态框（Modal） -->
+				  <div class="modal fade" id="delmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+					<div class="modal-dialog delcon">
+					    <h5>
+							是否删除 " <span ng-bind="deleteJkItem.name">  </span> "
+						</h5>
+						 <p class="sub text-center subfoot delfoot">
+		    		 		 <input type="button" name="addwarn" id="addbtn" value="确定" style="background:#3E85D7;" data-dismiss="modal" aria-hidden="true" ng-click="deleteJk()">
+		    		 		 <input type="button" name="" id="" value="取消" style="background:#5F6A70;" data-dismiss="modal" aria-hidden="true"/>
+		    		     </p>	
+				    </div>
+			    </div><!--删除确认模态框（Modal） -->
+			    </div>	
+			    <!--监控组完-->
+
+			    <!--应用-->
+		        <div class="tabcon">
+			    	 <div class="row">
+			    		<!--左边列表-->
+			    		 <div class="col-md-2 col-sm-2 col-xs-2 leftcon  leftMenu">
+			    		 	<ul class="leftlb">
+			    		 		<li ng-repeat="yy in yyArray" mouse-over-leave hover="hover">
+			    		 			<span ng-bind="yy.name" ng-click="yyInfo(yy)"></span><i ng-show="hover" class="fa fa-close pull-right" data-toggle="modal" data-target="#delyymodel" ng-click="delModal(yy,$index)"></i>
+			    		 		</li>
+			    		 	</ul>
+			    		 	<p ng-click="addyyButton()"><i class="fa fa-plus"></i><span>新增应用</span></p>
+			    		 </div>
+			    		 <!--右边内容-->
+			    		 <div class="col-md-10 col-sm-10 col-xs-10 luform yyform">
+			    		 	<form action="">
+			    		 		<p>
+			    		 			<label for="">应用名称</label>
+			    		 			<input type="text" placeholder="请输入应用名" ng-model="yyItem.name"/>
+			    		 		</p>
+			    		 		<p>
+			    		 			<label for="">IP 端口</label>
+			    		 			<input type="text" placeholder="请输入ip端口号" ng-model="yyItem.ipport"/>
+			    		 		</p>
+			    		 	</form>
+			    		 	<div class="clearfix"></div>
+			    		 	<p class="sub text-left">
+			    		 		<input type="button" name="" id="" value="确定" style="background:#3E85D7;" ng-click="addyy()"/>
+			    		 		<input type="button" name="" id="" value="取消" style="background:#5F6A70;"/>
+			    		 	</p>
+			    		 </div>
+			    	</div>
+			      <!-- 删除确认模态框（Modal） -->
+				  <div class="modal fade" id="delyymodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+					<div class="modal-dialog delcon">
+					    <h5>
+							是否删除 " <span ng-bind="deleteYYItem.name">  </span> "
+						</h5>
+						 <p class="sub text-center subfoot delfoot">
+		    		 		 <input type="button" name="addwarn" id="addbtn" value="确定" style="background:#3E85D7;" data-dismiss="modal" aria-hidden="true" ng-click="delYY()">
+		    		 		 <input type="button" name="" id="" value="取消" style="background:#5F6A70;" data-dismiss="modal" aria-hidden="true"/>
+		    		     </p>	
+				    </div>
+			    </div><!--删除确认模态框（Modal） -->
+			 </div> 
+		     <!--应用完-->  
+		</div><!--content-->
+	</div>
+	   
+   </body>
+   </html>
+
+    <!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/add.js"></script>
+
+	<script>
+		/*tab切换*/
+	 	$(function() {
+	      $(".tabtitle>li").click(function () {
+	        var i=$(this).index();
+	        $(this).addClass("select").siblings(".tabtitle>li").removeClass("select") ;
+	        $(".tabcon").eq(i).show().siblings(".tabcon").hide();
+	      })
+	 	});
+	 	
+       /*高度自适应*/
+	 	var H = document.compatMode=="CSS1Compat" ? document.documentElement.clientHeight:document.body.scrollHeight;
+		
+		$(".content").css({minHeight:H-120+'px'});
+
+		
+	</script>
+	
+	
+
