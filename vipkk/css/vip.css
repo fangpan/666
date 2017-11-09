@@ -1,0 +1,105 @@
+
+*{
+	margin:0;
+	padding:0;
+}
+
+.ban>img{
+	width: 100%;
+}
+.container-fluid{
+	padding:0;
+}
+.mid_con{
+	width: 100%;
+	background: #E34A44;
+	min-height: 20rem;
+}
+.signCon img{
+     width: 92%;
+     height:100%;
+     opacity: 22222;
+     margin:0 auto;
+}
+.signCon{
+    padding-top: 1rem;
+    position: relative;
+}
+.fot>img{
+	width: 100%;
+}
+.signCon>p{
+    position: absolute;
+    width: 130px;
+    height: 14px;
+    font-size: 1.4rem;
+    color: #FFF;
+    left: -5%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.signCon>a{
+	position: absolute;
+    width: 15%;
+    height: 50%;
+    right: 19%;
+    top: 28%;
+}   
+.hidefloor {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0.5;
+    display: none; 
+}
+.canGet,.noGet{
+    position: fixed;
+    top: 40%;
+    left: 4%;
+    z-index: 999;
+    width: 92%;
+    opacity: 1!important;
+    background: #FFF;
+    height: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    display: none;
+  }
+.canGet>img,.noGet>img{
+	position: absolute;
+	right: -8px;
+    top: -8px;
+    width: 2.5rem;
+}
+.getSuccess,.getFaild{
+	position: fixed;
+    top: 40%;
+    left: 4%;
+    z-index: 999;
+    width: 92%;
+    opacity: 1!important;
+    background: #FFF;
+    height: 10rem;
+    text-align: center;
+    display: none; 
+}
+.titleSuccess{
+	width: 100%;
+	background: #FF7E50;
+	color: #FFF;
+	font-size: 1.5rem;
+	line-height: 5rem;
+}
+.conSuccess{
+    color: #4E546B;
+}
+.getSuccess>img,.getFaild>img{
+	position: absolute;
+	right: -8px;
+    top: -8px;
+    width: 2.5rem;
+}
