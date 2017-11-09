@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="dist/css/light7.min.css">
+    <link rel="stylesheet" href="dist/css/light7-swiper.min.css">
+    <link rel="stylesheet" href="dist/css/light7-swipeout.css">
+    <link rel="stylesheet" href="dist/css/index.css">
+  </head>
+  <body>
+    <div class="page" ng-app="myApp"  ng-controller="myCtrl"> 
+	    <header class="bar bar-nav">
+         <a class="pull-left back" style="color:#FFF;">返回</a>
+         <h1 class="title" style="background:#95C53A;color: #FFF;">  查 询 结 果 </h1>
+      </header>
+      <div class="content">
+		    <div class="list-block listCon">
+          <ul class="liCon">
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title" style="color:#0894ec;">号码</div>
+                <div class="item-after" style="color:#0894ec;">状态</div>
+              </div>
+            </li>
+            <div class="content-padded" ng-show="live.length<1">
+               <p>当前网络不佳请您稍候再试...</p>
+            </div>
+            <li class="item-content" ng-repeat="x in live">
+              <div class="item-inner statu">
+                <div class="item-title" ng-bind="x.rolebum"></div>
+                <div class="item-after" ng-bind="x.roleName"></div>
+              </div> 
+            </li> 
+          </ul>
+        </div>
+      </div>
+	</div><!--PAGE--> 
+ </body>
+</html>
+
+<script type='text/javascript' src='dist/js/jquery-3.2.1.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/angular.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/light7.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/index.js' charset='utf-8'></script>
+
+<script>
+  $(document).ready(function(){ 
+    $(".statu>.item-after").each(function(){
+      var htm = $(this).html()
+
+     /*未激活配色*/
+      if(htm =="未激活"){
+          $(this).addClass("respect");
+          $(this).parents(".statu").click(function(){
+           $.alert("未激活");
+          })
+        }
+
+      /*已激活*/  
+       if(htm =="已激活"){
+          $(this).parents(".statu").click(function(){
+            $.alert("已激活");
+          })
+        }
+    })
+  })
+</script>
+
+
