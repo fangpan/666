@@ -14,6 +14,8 @@ jQuery.fn.pagination = function(maxentries, opts){
 		current_page:0,
 		num_edge_entries:0,
 		link_to:"#",
+		first_text: "首页",
+		last_text: "尾页",
 		prev_text:"上一页",
 		next_text:"下一页",
 		ellipse_text:"...",
@@ -86,6 +88,13 @@ jQuery.fn.pagination = function(maxentries, opts){
 				if(appendopts.classes){lnk.addClass(appendopts.classes);}
 				panel.append(lnk);
 			}
+			
+			// firstPage 跳转到首页
+			if (opts.first_text && (current_page > 0 || opts.prev_show_always)) {      
+				appendItem(0, { text: opts.first_text, classes: "prev disabled" });           
+			} 
+			
+			
 			// 产生"Previous"-链接
 			if(opts.prev_text && (current_page > 0 || opts.prev_show_always)){
 				appendItem(current_page-1,{text:opts.prev_text, classes:"prev"});
@@ -123,6 +132,14 @@ jQuery.fn.pagination = function(maxentries, opts){
 			if(opts.next_text && (current_page < np-1 || opts.next_show_always)){
 				appendItem(current_page+1,{text:opts.next_text, classes:"next"});
 			}
+			
+			// lastPage 跳转到尾页
+			if (opts.last_text && (current_page < np - 1 || opts.next_show_always)) {            
+				 appendItem(np, { text: opts.last_text, classes: "prev disabled" });          
+			}
+			
+		
+			
 		}
 		
 		//从选项中提取current_page
@@ -158,5 +175,7 @@ jQuery.fn.pagination = function(maxentries, opts){
         opts.callback(current_page, this);
 	});
 }
+
+
 
 
