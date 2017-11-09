@@ -1,0 +1,122 @@
+.page{
+	font-family: "微软雅黑";
+
+}
+.firstPage{background: #FFF;}
+.fr{float: right;}
+.fl{float:left;}
+.phoneInput{
+	margin-top: 1.2rem!important;
+	color: #B2B2B2;
+	font-size: 0.8rem;
+	padding-bottom: 0.8rem!important;
+}
+.codeInput{
+	width: 60%!important;
+	color: #B2B2B2;
+	font-size: 0.8rem;
+}
+.getCode{
+	border-left: 1px solid #E6E6E6;
+	padding: 0.1rem 0.7rem;
+	color: #FF3366;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+.content-block .button{
+	background: #FF3366;
+	color: #FFF;
+	border: none;
+	line-height: 2.4rem;
+    margin-top: 0.2rem;
+}
+.Button{
+	margin-top: 2.75rem;
+}
+.itemInput{
+	padding-top: 0.8rem!important;
+	padding-bottom: 0.8rem!important;
+}
+.card{
+	background:#efeff4;
+}
+.cardSend{
+	background: url(../img/yifasong.png) no-repeat center center;
+	background-size: 100% 100%;
+	position: relative;
+}
+.cardNosend{
+	background: url(../img/wiefasong.png) no-repeat center center;
+	background-size: 100% 100%;
+	position: relative;
+}
+ .card-content-inner{
+	height: 4rem;
+} 
+.card-header{
+	padding: 0;
+}
+p{margin: 0;}
+
+.catImg{
+	height:1rem;
+}
+.useDate{
+	font-size: 0.6rem;
+	color:#989898 ;
+	padding-top: 0.2rem;
+}
+.price{
+	position: absolute;
+	top: 30%;
+	right: 0%;
+	color: #FFF;width: 25%;text-align: center;
+}
+.card{
+	margin: 0.6rem;
+}
+.card:first-child{
+	margin-top: 0.8rem;
+}
+.list-block ul{
+	border-top: none;
+}
+.topBg{
+	background: url(../img/cardbj.png) no-repeat center center;
+	background-size: 100% 100%;
+}
+.titleName{
+	line-height: 0.4rem;
+	font-size: 0.5rem;
+}
+.titleCon{
+	font-size: 0.4rem;
+	padding-top: 0.6rem;
+	overflow: visible;
+	line-height: 0.8rem;
+	white-space:normal;
+    padding-right: 0.5rem!important;
+}
+.buttons-tab .button.active{
+	border-color:#FF3366;
+	color: #FF3366;
+}
+.tabTitle a{
+	font-size: 0.7rem!important;
+}
+.content-block{
+	padding: 0;
+	margin: 0;
+}
+.cardContent{
+	background: #FFF;
+}
+.rule{
+	height: auto!important;
+}
+.content-padded p{
+	text-indent:1.2rem;
+	font-size: 0.6rem;
+}
+
+

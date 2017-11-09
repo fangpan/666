@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="public/dist/css/light7.min.css">
+    <link rel="stylesheet" href="public/dist/css/light7-swiper.min.css">
+    <link rel="stylesheet" href="public/dist/css/light7-swipeout.css">
+    <link rel="stylesheet" href="public/dist/css/font-awesome.min.css">
+    <link rel="stylesheet" href="public/dist/css/index.css">
+  </head>
+  <body>
+     <div class="page" ng-app="myApp"  ng-controller="myCtrl" >
+        <header class="bar bar-nav">  
+		    <h1 class="title" style="color: #373737;font-size: 1rem;">卡卷包</h1>
+		</header>
+		<div class="content">
+    <!-- top背景图 -->
+      <div class="topBg">
+        <div class="card-content">
+          <div class="card-content-inner">
+            <p class="title titleName" style="width:99%">尊敬的 【<span style="color:#FF3366" ng-bind="priceNum.useName"></span>】您好</p>
+            <p class="title titleCon" style="width:99%">您总共获得 <span style="color:#FF3366" ng-bind="priceNum.totleprice"></span> 元天猫劵，每月可获取 <span style="color:#FF3366" ng-bind="priceNum.monthprice"></span> 元天猫劵，总共分 <span style="color:#FF3366" ng-bind="priceNum.monthNum"></span> 个月返还完毕；您已获得 <span style="color:#FF3366" ng-bind="priceNum.getmonth"></span> 个月天猫劵，还可以领取 <span style="color:#FF3366" ng-bind="priceNum.leavemonth"></span> 个月天猫劵。</p>
+          </div>
+        </div>
+      </div>
+
+  <!-- 标签页-->
+  <div class="buttons-tab tabTitle">
+    <a href="#tab1" class="tab-link active button">已发放</a>
+    <a href="#tab2" class="tab-link button">未发放</a>
+  </div>
+  <!-- 标签页内容-->
+  <div class="content-block">
+    <div class="tabs">
+      <div id="tab1" class="tab active">
+        <div class="content-block">
+          <div class="card" ng-repeat="x in coupon1">
+            <div class="card-content cardSend">
+              <div class="card-content-inner">
+                <div class="fl">
+                    <img src="public/dist/img/tianmao.png" class="catImg">
+                    <p class="useDate">发放日期: <span class="formDate" ng-bind="x.usetime"></span></p>
+                </div>
+                <div class="price">
+                   <p>￥ <span class="usePrice" style="font-size:1.2rem;" ng-bind="x.price"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab2" class="tab">
+        <div class="content-block">
+          <div class="card" ng-repeat="x in coupon2">
+            <div class="card-content cardNosend">
+              <div class="card-content-inner">
+                <div class="fl">
+                    <img src="public/dist/img/tianmao.png" class="catImg">
+                    <p class="useDate">预计发放日期: <span class="formDate" ng-bind="x.usetime"></span></p>
+                </div>
+                <div class="price">
+                   <p>￥ <span class="usePrice" style="font-size:1.2rem;" ng-bind="x.price"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- 切换内容完 -->
+  <!-- 卡劵规则 -->
+  <div class="card cardContent">
+    <div class="card-content">
+      <div class="card-content-inner rule">
+        <div class="content-padded">
+           <h3 style="text-align:center;font-size: 0.7rem!important;"> 天猫购物券通用规则</h3>
+           <p>天猫购物券是天猫平台专属购物券，获得天猫购物券的消费者可以按照本条规则在天猫特定商家*购物消费时凭券享受折扣让利。</p>
+           <p>1. 天猫购物券存在不同使用门槛及面额，日常天猫购物券使用门槛及面额为：满2.01元减2元、满100减5元、满150减10元、满300减20元、满500减50元、满1000减100元（满X减Y，其中X为使用门槛，Y为面额），部分活动发放的天猫购物券使用门槛及面额可能会有所变化，具体以实际发放购物券券面说明为准。
+           </p>
+           <p>2.  天猫购物券可用于在天猫商家店铺内购买实物商品（特殊类目/商品*除外）时，在符合使用门槛的情况下抵扣使用，单张天猫购物券面额为其可抵扣金额。
+            *特殊类目/商品：本地化生活服务、婚庆/摄影/摄像服务 、交通票、电影/演出/体育赛事、休闲娱乐、餐饮美食、超市卡/商场购物卡、天猫点券、特价酒店/特色客栈/公寓旅馆、度假线路/签证送关/旅游服务、景点门票/实景演出/主题乐园、网店/网络服务/软件、数字阅读、新车/二手车、装修设计/施工/监理、其他、外卖/外送/订餐服务、服务市场、教育培训、网游垂直市场根类目、TP服务商大类、合作商家、网络店铺代金/优惠券、房产/租房/新房/二手房/委托服务、自用闲置转让、保险、外卖/外送/订餐服务、本地生活团购、保险分销、数字娱乐、腾讯QQ专区、网络游戏点卡、手机号码/套餐/增值业务、移动/联通/电信充值中心、网游装备/游戏币/帐号/代练、服务商品、游戏物品交易平台、O2O兑换券、特色手工艺、流量管理、个性订制/设计服务/DIY、电玩/配件/游戏/攻略、音乐/影视/明星/音像、摩托车/装备/配件、公益、平行进口车、景点门票/实景演出/主题乐园、特价酒店/特色客栈/公寓旅馆、度假线路/签证送关/旅游服务、国内机票/国际机票/增值服务、基金、处方药、淘商号、众筹、司法拍卖拍品、俪人购、节能补贴商品。
+            </p>
+            <p>3. 为了给到消费者更多让利，部分天猫店铺支持天猫购物券翻倍玩法，即商家选择满减门槛（即满X减Y，其中X为满减门槛，Y为可抵扣金额）进行设置后，在符合满减门槛的情况下，5元面额天猫购物券可在该部分商家店铺内翻倍使用（翻倍使用是指5元面额翻倍至Y元进行抵扣使用，如：满xx减10情况下，可抵扣10元；满xx减20情况下，则可抵扣20元），除5元外其他面额购物券暂不支持翻倍。
+            </p>
+            <p>4. 天猫购物券翻倍使用时原有购物券使用门槛及面额不再生效，需按照商家设置的满减门槛及可抵扣金额进行使用，如商家设置满200减20元，用户手上有一张满100减5元购物券，下单100元未满足商家设定满减门槛，购物券则不可翻倍使用，下单仍然只能抵扣5元，如用户下单满200元，则满100减5元购物券即可抵扣20元，购物券是否翻倍、翻倍使用门槛等具体信息以商家在其店铺内的购物券翻倍说明为准。
+            </p>
+            <p>5. 在天猫购物时，点击购买后，页面会提示可供使用的天猫购物券，只要选择该天猫购物券即可按面额或可抵扣金额进行抵扣，天猫购物券及天猫购物券翻倍使用时仅可用于抵扣商品金额，不能抵扣运费、税金、运费险、增值服务、天猫国际进口税等非商品金额。
+            </p>
+            <p>6. 天猫购物券可用于单件商品的付款，也可用于购物车合并下单付款，同时支持在跨店铺订单中使用。需要注意：如果选择购物券翻倍使用，则仅支持在设置相同满减门槛及可抵扣金额的商家店铺下跨店使用，如商家设置的满减门槛或可抵扣金额不同，则不可跨店用券。注：天猫医药馆商品不支持跨店用券。</p>
+            <p>7. 天猫购物券可在天猫普通订单交易、聚划算、淘海外（tw.taobao.com）、天猫超市、天猫国际（免税店除外）业务中使用，暂不支持秒杀、预售、聚划算预售、付邮试用、特供宝、分阶段支付及交易链路不支持使用购物券的业务。
+            </p>
+            <p>8. 天猫购物券及天猫购物券翻倍玩法可与商家单品优惠、店铺优惠、店铺/单品优惠券及红包叠加使用，付款时默认优先使用商家店铺/单品优惠券，如使用商家优惠后金额仍满足天猫购物券使用条件则可继续叠加使用天猫购物券。
+            </p>
+            <p>9. 购物券不得提现，不得转赠他人，不得为他人付，不得拆分使用。</p>
+            <p>10.  同一个订单只能使用一张天猫购物券。</p>
+            <p>11.  天猫购物券自领取之日起7天内有效（部分活动券可能存在不同有效期，具体详见卡券包内天猫购物券有效期说明）。</p>
+            <p>12.  使用天猫购物券的订单若交易未成功或发生退款及售后，在交易所使用的购物券有效期内交易关闭的，购物券将退回用户账户，退回后的天猫购物券有效期不变。如在交易使用的购物券有效期之外发生退款，所使用的购物券不予退还。使用购物券的订单发生退款时，在有效期内的，会退回您的账户，如已过有效期的则不再补发；</p>
+            <p>13.  如购物券翻倍使用，交易未成功发生退款，交易关闭后将向用户退还购物券，退还后的天猫购物券面额不包含翻倍部分金额，有效期不变。如发生售后退款，天猫购物券（包括券面额及翻倍部分金额）将不退还。</p>
+            <p>14.  天猫购物券使用平台要求
+              1)需使用淘宝客户端（手机端IOS/Android:4.1.2.1及以上版本；Ipad:3.1.0及以上版本）。
+              2)需使用天猫客户端（手机端IOS/Android:4.2.0及以上版本；Ipad:1.7.0及以上版本）。
+              3)支持翻倍使用的渠道：PC、手机天猫、手机天猫pad、手机天猫H5；不支持翻倍使用的渠道：手机淘宝、手机淘宝pad；
+            </p>
+            <p>15.  在获取和使用天猫购物券过程中，如果出现违规行为（如作弊领取、恶意套现、刷取信誉、虚假交易等），天猫将取消用户的中奖资格，并有权撤销违规交易、收回购物券（含已使用的购物券及未使用的购物券）,必要时追究法律责任。
+            </p>
+        </div>
+       </div>
+    </div>
+  </div><!-- 卡劵规则 -->
+  </div><!--content-->
+  </div><!--PAGE-->
+
+  <script type='text/javascript' src='public/dist/js/jquery-3.2.1.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='public/dist/js/angular.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='public/dist/js/light7.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='public/dist/js/light7-swiper.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='public/dist/js/light7-swipeout.js' charset='utf-8'></script>
+  <script type='text/javascript' src='public/dist/js/index.js' charset='utf-8'></script>
+</body>
+</html>
+
+
+
