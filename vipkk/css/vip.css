@@ -30,11 +30,11 @@
 }
 .signCon>p{
     position: absolute;
-    width: 130px;
+    text-align: center;
     height: 14px;
     font-size: 1.4rem;
     color: #FFF;
-    left: -5%;
+    left: -10%;
     right: 0;
     top: 0;
     bottom: 0;
