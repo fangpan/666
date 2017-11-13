@@ -1,4 +1,4 @@
-/* 欲思博客 搜集整理 http://yusi123.com/3313.html */
+/* 脫没脣录虏漏驴脥 脣脩录炉脮没脌铆 http://yusi123.com/3313.html */
 
 
 .grid {
@@ -28,6 +28,7 @@
 	display: block;
 	min-height: 100%;
 	opacity: 0.8;
+	width: 100%;
 }
 
 .grid figure figcaption {
@@ -1119,7 +1120,7 @@ figure.effect-chico:hover p {
 
 @media screen and (max-width: 69.5em) {
 	.grid figure {
-		width: 50%;
+		width: 100%;
 	}	
 
 	.grid figure figcaption {
