@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>套餐变更确认</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/change.css">
+</head>
+<body>
+	
+   <div class="container" style="padding:0;padding-bottom:40px;">
+     
+    <!--  可选的新套餐 -->
+       <div class="paddingCon">
+         <div class="topT">
+             <p>请确认您的选择后提交：</p>
+         </div>
+
+        <!-- 新套餐内容 -->
+        <div class="canChange NEWCT">
+            <ul class="oldCT" style="margin:0 15px;">
+               <li>机主姓名：<span>哈哈</span></li>
+               <li>有效证件：<span>420114********9999</span></li>
+               <li>套餐名称：<span style="color:#FF7600; ">十全十美</span></li>
+               <li>套餐详情：<span>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</span></li>
+               <li>资费：<span style="color:#FF7600; ">199.0元/月</span></li>
+            </ul>
+        </div>
+
+         <!-- 旧套餐内容 -->
+         <div class="canChange OLDCT">
+            <ul class="oldCT" style="margin:0 15px;">
+               <li>机主姓名：<span>哈哈</span></li>
+               <li>有效证件：<span>420114********9999</span></li>
+               <li>套餐名称：<span style="color:#FF7600; ">十全十美</span></li>
+               <li>套餐详情：<span>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</span></li>
+               <li>资费：<span style="color:#FF7600; ">199.0元/月</span></li>
+            </ul>
+        </div>
+       
+      </div> 
+     <div class="graybg"></div>
+
+      <!-- 订单信息 -->
+      <div class="paddingCon">
+
+         <div class="topT">
+             <p>请填写订单信息：</p>
+         </div>
+        
+         <ul class="orderMsg list-group">
+           <li class="list-group-item">联系人姓名：
+               <input type="text" placeholder="请输入联系人姓名" id="NAME">
+           </li>
+           <li class="list-group-item">联系人电话：
+               <input type="text" placeholder="请输入联系人电话" id="PHONE" maxlength="11">
+           </li>
+           <li class="list-group-item">联系人收件地址：
+              <p></p>
+              <textarea class="form-control" id="ADD"></textarea>
+           </li>
+         </ul>
+
+      </div> 
+      
+      <div class="clearfix"></div>
+      <div class="graybg"></div>
+
+      <!-- 下一步按钮 -->
+       <div class="row sureBTN">
+          <button type="button" class="col-sm-4 col-xs-4 btn returnBtn">返回上一步</button>
+          <button type="button" class="col-sm-8 col-xs-8 btn goBtn">我已了解，立即办理</button>
+       </div>
+   </div>
+
+</body>
+</html>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/alert.js"></script>
+
+<script>
+
+   $(".returnBtn").click(function(){
+
+    window.location.href="change.html"
+
+   })
+    
+/*提交验证*/
+
+$(".goBtn").click(function(){
+
+    var patternName= /^[\u4e00-\u9fa5]{2,10}$/;
+    var patternPhone= /^1{1}[3578]{1}[0-9]{9}$/;
+    var valueName = $("#NAME").val();
+    var valuePhone = $("#PHONE").val();
+    var valueAdd = $("#ADD").val();
+
+    if(valueName == ""){
+      alert("请输入联系人姓名") 
+    }
+
+    else if(!patternName.test(valueName)){
+       alert("请输入正确的联系人姓名") 
+    }
+    else if(valuePhone ==""){
+       alert("请输入联系人电话") 
+    }
+     else if(!patternPhone.test(valuePhone)){
+       alert("请输入正确的联系人电话") 
+    }
+      else if(valueAdd ==""){
+       alert("请输入联系人收件地址") 
+    }
+    else{
+      window.location.href="success.html"
+    }
+ 
+})
+
+
+</script>
+
