@@ -255,6 +255,12 @@
     text-align: center;
 }
 
+.codeNum input{
+    padding: 8px 0;
+    font-size: 15px;
+    margin: 8px 0;
+}
+
 
 
 
