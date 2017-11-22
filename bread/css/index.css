@@ -15,8 +15,8 @@ body{
     font-size:15px;
 }
 .nav>li>a {
-   padding-left: 28px;
-   padding-right: 28px;
+   padding-left: 35px;
+   padding-right: 35px;
 }
 @media (min-width: 768px){
     
