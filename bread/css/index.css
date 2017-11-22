@@ -127,6 +127,7 @@ body{
 }
 .tuijian .nav>li>a{
     color: #afa9a3;
+    border: 1px solid #ccc;
 }
 .tuijian .nav-tabs>li.active>a, .tuijian .nav-tabs>li.active>a:focus, .tuijian .nav-tabs>li.active>a:hover {
     color: #fff;
