@@ -256,7 +256,9 @@
     font-size: 15px;
     margin: 8px 0;
 }
-
+.codeNum{
+    border-top: 1px solid #E8E7E4;
+}
 
 
 
