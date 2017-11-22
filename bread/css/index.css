@@ -112,6 +112,9 @@ body{
     margin-right: auto;
     margin-left: 14px;
 }
+#myTab li{
+    margin-right:10px;
+}
 .tuijian .nav-tabs{
     border:none;
     margin-top:1.5rem;
