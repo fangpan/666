@@ -278,4 +278,6 @@
 .newZF{
     margin-bottom:-4px;
 }
-
+.success>img{
+    width:66%;
+}
