@@ -273,6 +273,7 @@
 }
 .NEWCT{
     background: url(../images/ic_new.png) no-repeat right 6px top 6px;
+    background-size: 80px;
 }
 
 
