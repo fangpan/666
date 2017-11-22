@@ -283,4 +283,6 @@
 }
 .returnIndex .btn{
     border:none;
+    width: 80%;
+    border-radius: 20px
 }
