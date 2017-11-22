@@ -265,8 +265,12 @@
 #oldZF>p{
     margin:0;
 }
-
-
+.canChange{
+    border-width:2px; 
+}
+.oldCT li{
+    margin:5px 0;
+}
 
 
 
