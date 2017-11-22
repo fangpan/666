@@ -230,4 +230,35 @@
 	background: #FF7600;
 	color: #FFF!important;
 }
+.Next .btn{
+	 border: none;
+    font-size: 14px;
+}
+.phoneNum{
+	padding: 16px 0;
+	font-size: 15px;
+}
+.codeNum input{
+	padding: 16px 0;
+	font-size: 15px;
+}
+
+.sendCode{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    padding-left: 0;
+}
+
+#resetCode{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+}
+
+
+
+
+
+
 
