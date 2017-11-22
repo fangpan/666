@@ -281,3 +281,6 @@
 .success>img{
     width:66%;
 }
+.returnIndex .btn{
+    border:none;
+}
