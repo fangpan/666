@@ -100,7 +100,7 @@ body{
     color: #432d18;
 }
 .tuijian h4, .news h4{
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 .tuijian h4 span, .news h4 span, .about h4 span{
     border-bottom: 2px dotted #afa9a3;
