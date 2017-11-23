@@ -177,11 +177,11 @@
 }
 .NEWCT{
 	border-color: #FF7600;
-	background: url(../images/ic_new.png) no-repeat right top;
+	background: url(../images/ic_new.png) no-repeat right 6px top 6px;
 	background-size: 80px;
 }
 .OLDCT{
-	background: url(../images/ic_old.png) no-repeat right top;
+	background: url(../images/ic_old.png) no-repeat right 6px top 6px;
 	background-size: 80px;
 }
 .orderMsg input{
@@ -270,10 +270,6 @@
 }
 .oldCT li{
     margin:5px 0;
-}
-.NEWCT{
-    background: url(../images/ic_new.png) no-repeat right 6px top 6px;
-    background-size: 80px;
 }
 .newZF{
     margin-bottom:-4px;
