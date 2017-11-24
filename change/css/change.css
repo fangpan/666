@@ -253,14 +253,14 @@
 }
 .opendetail{
    text-align: right;
-   background: url(images/more.png) no-repeat right -2px;
+   background: url(../images/more.png) no-repeat right -2px;
    padding-right: 25px;
    display: none;
 }
 .closedetail{
   display: none;
   text-align: right;
-  background: url(images/less.png) no-repeat right -2px;
+  background: url(../images/less.png) no-repeat right -2px;
   padding-right: 25px;
 }
 .height{
