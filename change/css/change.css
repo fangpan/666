@@ -15,7 +15,7 @@
     margin:0 auto;
 }
 .nav-tabs{
-     border-bottom: 1px solid #E8E7E4;
+        border-bottom: 1px solid #E8E7E4;
 	margin:0px;
 	margin-top: 20px;
 }
@@ -48,13 +48,13 @@
     padding-left: 10px;
 }
 .codeNum{
-	margin:0;
+    margin:0;
     width:100%;
     border-bottom: 1px solid #E8E7E4;
 }
 .codeNum input{
-	border: none;
-	padding: 14px 0;
+    border: none;
+    padding: 14px 0;
     font-size: 14px;
     padding-left: 10px;
     width: 65%;
@@ -176,7 +176,7 @@
 	font-size: 14px;
 	background: #FF7600;
 	color: #FFF;
-    height: 45px;
+        height: 45px;
 }
 .NEWCT{
 	border-color: #FF7600;
@@ -266,10 +266,7 @@
 .height{
    height: 44px;
 }
-#textarea{
-   outline: none;
-   line-height: 22px;
-}
+
 
 
 
