@@ -139,25 +139,11 @@ function testPhone(){
 
 //倒计时
 function resetCode(){
-
-	$(".hidefloor").show();
-	$(".msglay").show();
+    alert("验证码已发送至您的手机")
     $('#sendCode').hide();
     $('#resetCode').show();
-
-
-var VAL = $("#phone").val();
-$("#MSGphone").text(VAL);
-
-setInterval(function(){
-    $(".hidefloor").hide();
-	$(".msglay").hide();
-
-},3000)
-
-
+	
   var second = 60;
-
   $('#time_sec').html(second);
 
   var timer = null;
