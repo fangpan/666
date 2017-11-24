@@ -266,7 +266,12 @@
 .height{
    height: 44px;
 }
-
+#ADD{
+    outline: none;
+    width: 100%;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
 
 
 
