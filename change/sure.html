@@ -69,8 +69,7 @@
                <input type="text" placeholder="请输入联系人电话" id="PHONE" maxlength="11">
            </li>
            <li class="list-group-item">联系人收件地址：
-              <p></p>
-              <textarea class="form-control" id="ADD"></textarea>
+              <span contenteditable="true" id="textarea"></span>
            </li>
          </ul>
       </div> 
@@ -169,7 +168,7 @@ $(".goBtn").click(function(){
     var patternPhone= /^1{1}[3578]{1}[0-9]{9}$/;
     var valueName = $("#NAME").val();
     var valuePhone = $("#PHONE").val();
-    var valueAdd = $("#ADD").val();
+     var valueAdd = $("#textarea").html();
 
     if(valueName == ""){
       alert("请输入联系人姓名") 
