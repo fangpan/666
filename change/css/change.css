@@ -42,6 +42,7 @@
 .phoneNum{
     border: none;
     width: 100%;
+    border-bottom: 1px solid #E8E7E4;
     padding: 14px 0;
     font-size: 14px;
     padding-left: 10px;
@@ -96,6 +97,7 @@
 	font-size: 13px;
 	color: #C3C0B9;
 	line-height: 22px;
+	margin-bottom:6px;
 }
 .oldZF p{
 	font-size: 14px;
@@ -109,10 +111,10 @@
 	background: #F3F2F1;
 }
 .paddingCon{
-	padding:0 15px;
+	padding:5px 15px;
 }
 .canChange{
-	border:1px solid #E8E7E4;
+	border:2px solid #E8E7E4;
 	margin-bottom: 8px;
 	border-radius: 10px;
 	padding:0;
@@ -124,6 +126,7 @@
 	border-bottom: 1px solid #FF7600;
 	padding:10px 0;
 	margin: 0 15px;
+	font-weight: bold;
 }
 .newZF{
 	display: inline-block;
@@ -164,7 +167,7 @@
 .Tips ul li{
 	list-style: none;
 	font-size: 13px;
-	line-height: 20px;
+	line-height: 22px;
 }
 .changeNext .btn{
 	position: fixed;
@@ -213,9 +216,9 @@
 	background-size: 30px;
 }
 .success>img{
-	width: 76%;
+	width: 66%;
 	margin:0 auto;
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-bottom: 30px;
 }
 .success p{
@@ -228,57 +231,42 @@
 .returnIndex .btn{
 	background: #FF7600;
 	color: #FFF!important;
+	border:0;
 }
-.Next .btn{
-     border: none;
-     font-size: 16px;
+.path{
+    background: #F9F9F8;
+    padding:10px;
+  }
+  .navbar{
+    margin-bottom: 0;
+  }
+  .page{
+    padding-top: 0!important;
+    padding-bottom: 30px;
+  }
+ .indexTip{
+     border-top: 1px solid #E8E7E4;
+     padding-top:2px;
+ }
+.DCdetail{
+    overflow: hidden;
 }
-.phoneNum{
-	padding: 16px 0;
-	font-size: 15px;
+.opendetail{
+   text-align: right;
+   background: url(images/more.png) no-repeat right -2px;
+   padding-right: 25px;
+   display: none;
+}
+.closedetail{
+  display: none;
+  text-align: right;
+  background: url(images/less.png) no-repeat right -2px;
+  padding-right: 25px;
+}
+.height{
+   height: 44px;
 }
 
-.sendCode{
-    display: inline-block;
-    width: 33%;
-    text-align: center;
-    padding-left: 0;
-}
 
-#resetCode{
-    display: inline-block;
-    width: 33%;
-    text-align: center;
-}
 
-.codeNum input{
-    padding: 8px 0;
-    font-size: 15px;
-    margin: 8px 0;
-}
-.codeNum{
-    border-top: 1px solid #E8E7E4;
-}
-.topT p{
- 	line-height: 42px;
- }  
-#oldZF>p{
-    margin:0;
-}
-.canChange{
-    border-width:2px; 
-}
-.oldCT li{
-    margin:5px 0;
-}
-.newZF{
-    margin-bottom:-4px;
-}
-.success>img{
-    width:66%;
-}
-.returnIndex .btn{
-    border:none;
-    width: 86%;
-    border-radius: 20px
-}
+
