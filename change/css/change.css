@@ -15,7 +15,7 @@
     margin:0 auto;
 }
 .nav-tabs{
-        border-bottom: 1px solid #E8E7E4;
+    border-bottom: 1px solid #E8E7E4;
 	margin:0px;
 	margin-top: 20px;
 }
@@ -42,36 +42,41 @@
 .phoneNum{
     border: none;
     width: 100%;
-    border-bottom: 1px solid #E8E7E4;
-    padding: 14px 0;
-    font-size: 14px;
     padding-left: 10px;
+    padding: 16px 0;
+	font-size: 15px;
 }
 .codeNum{
     margin:0;
     width:100%;
+    border-top: 1px solid #E8E7E4;
     border-bottom: 1px solid #E8E7E4;
 }
 .codeNum input{
     border: none;
-    padding: 14px 0;
-    font-size: 14px;
     padding-left: 10px;
     width: 65%;
+    padding: 8px 0;
+    font-size: 15px;
+    margin: 8px 0;
 }
 .sendCode{
 	color: #FF7600;
 	border-left: 1px solid #E8E7E4;
-	padding-left: 12px;
+	display: inline-block;
+        width: 33%;
+        text-align: center;
+        padding-left: 0;
 }
 .Next{
 	margin-top: 50px;
 }
 .Next .btn{
-	font-size: 14px;
 	border-radius: 20px;
 	background: #FF7600;
 	color: #FFF;
+	border: none;
+        font-size: 16px;
 }
 .code{
     width: 33%!important;
@@ -89,7 +94,7 @@
 	font-size: 14px;
 	font-weight: bold;
 	border-bottom: 1px dashed #E8E7E4;
-	line-height: 36px;
+	line-height: 42px;
 }
 .oldCT li{
 	list-style: none;
@@ -97,7 +102,6 @@
 	font-size: 13px;
 	color: #C3C0B9;
 	line-height: 22px;
-	margin-bottom:6px;
 }
 .oldZF p{
 	font-size: 14px;
@@ -111,7 +115,7 @@
 	background: #F3F2F1;
 }
 .paddingCon{
-	padding:5px 15px;
+	padding:0 15px;
 }
 .canChange{
 	border:2px solid #E8E7E4;
@@ -121,18 +125,19 @@
 } 
 .changeTitle{
 	font-size: 14px;
+	font-weight: bold;
 	color: #FF7600;
 	text-align: center;
 	border-bottom: 1px solid #FF7600;
 	padding:10px 0;
 	margin: 0 15px;
-	font-weight: bold;
 }
 .newZF{
 	display: inline-block;
 	width:100%;
 	padding:0 10px;
 	margin-top: 10px;
+	margin-bottom:-4px;
 }
 .newZF p{
 	margin:0;
@@ -142,11 +147,12 @@
 	font-size: 14px;
 	border-top: 1px solid #E8E7E4;
 	line-height: 36px;
-	background: url(../images/tick.png) no-repeat right center;
-	background-size: 30px;
 }
 .newZF p span{
 	color: #C3C0B9;
+}
+.newZF p .pull-left span{
+	color: #333;
 }
 .newZF p img{
 	display: block;
@@ -154,10 +160,10 @@
 }
 .newCT li{
 	list-style: none;
-	margin-top: 6px;
 	font-size: 13px;
 	color: #C3C0B9;
 	line-height: 22px;
+	margin:5px 0;
 }
 .Tips .topT p{
 	background: url(../images/prompt.png) no-repeat left center;
@@ -177,15 +183,6 @@
 	background: #FF7600;
 	color: #FFF;
         height: 45px;
-}
-.NEWCT{
-	border-color: #FF7600;
-	background: url(../images/ic_new.png) no-repeat right 6px top 6px;
-	background-size: 80px;
-}
-.OLDCT{
-	background: url(../images/ic_old.png) no-repeat right 6px top 6px;
-	background-size: 80px;
 }
 .orderMsg input{
 	border:0;
@@ -208,15 +205,19 @@
 .active{
 	border-color: #FF7600;
 }
-.active .choseTC span{
-	color: #FF7600;
+.choseTC{
+    background: url(../images/tick.png) no-repeat left center;
+	background-size: 30px;
+	padding-left:35px;
 }
 .active .choseTC{
-	background: url(../images/tick_pre.png) no-repeat right center;
+	background: url(../images/tick_pre.png) no-repeat left center;
 	background-size: 30px;
+	padding-left:35px;
+	color: #FF7600;
 }
 .success>img{
-	width: 66%;
+	width:66%;
 	margin:0 auto;
 	margin-top: 50px;
 	margin-bottom: 30px;
@@ -228,33 +229,49 @@
 .returnIndex{
 	margin-top:30px;
 }
-.returnIndex .btn{
-	background: #FF7600;
-	color: #FFF!important;
-	border:0;
+#resetCode{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
 }
-.path{
-    background: #F9F9F8;
-    padding:10px;
-  }
-  .navbar{
-    margin-bottom: 0;
-  }
-  .page{
-    padding-top: 0!important;
-    padding-bottom: 30px;
-  }
- .indexTip{
-     border-top: 1px solid #E8E7E4;
-     padding-top:2px;
+#oldZF>p{
+    margin:0;
+}
+.NEWCT{
+    border-color: #FF7600;
+    background: url(../images/ic_new.png) no-repeat right 6px top 6px;
+    background-size: 80px;
+}
+.returnIndex .btn{
+    border:none;
+    width: 86%;
+    border-radius: 20px;
+    background: #FF7600;
+    color: #FFF!important;
+}
+.OLDCT{
+	background: url(../images/ic_old.png) no-repeat right 6px top 6px;
+	background-size: 80px;
+}
+ .path{
+   background: #F9F9F9;
+   padding:10px;
  }
-.DCdetail{
-    overflow: hidden;
+ .navbar{
+   margin-bottom: 0;
+ }
+ .page{
+   padding-top: 0!important;
+   padding-bottom: 30px;
+ }
+.indexTip{
+    border-top: 1px solid #E8E7E4;
+    padding-top:2px;
 }
 .opendetail{
-   text-align: right;
-   background: url(../images/more.png) no-repeat right -2px;
-   padding-right: 25px;
+  text-align: right;
+  background: url(../images/more.png) no-repeat right -2px;
+  padding-right: 25px;
    display: none;
 }
 .closedetail{
@@ -262,6 +279,9 @@
   text-align: right;
   background: url(../images/less.png) no-repeat right -2px;
   padding-right: 25px;
+}
+.DCdetail{
+    overflow: hidden;
 }
 .height{
    height: 44px;
@@ -272,6 +292,3 @@
     padding: 4px 6px;
     border-radius: 4px;
 }
-
-
-
