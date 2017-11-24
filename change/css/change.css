@@ -266,7 +266,10 @@
 .height{
    height: 44px;
 }
-
+#textarea{
+   outline: none;
+   line-height: 22px;
+}
 
 
 
