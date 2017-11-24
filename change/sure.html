@@ -50,17 +50,14 @@
                <li>资费：<span style="color:#FF7600; ">399.0元/月</span></li>
             </ul>
         </div>
-       
       </div> 
      <div class="graybg"></div>
 
       <!-- 订单信息 -->
       <div class="paddingCon">
-
          <div class="topT">
              <p>请填写订单信息：</p>
          </div>
-        
          <ul class="orderMsg list-group">
            <li class="list-group-item">联系人姓名：
                <input type="text" placeholder="请输入联系人姓名" id="NAME">
@@ -69,13 +66,13 @@
                <input type="text" placeholder="请输入联系人电话" id="PHONE" maxlength="11">
            </li>
            <li class="list-group-item">联系人收件地址：
-              <span contenteditable="true" id="textarea"></span>
+              <p></p>
+              <textarea class="form-control" id="ADD"></textarea>
            </li>
          </ul>
       </div> 
       <div class="clearfix"></div>
       <div class="graybg"></div>
-
 
      <!-- 温馨提示 -->
       <div class="paddingCon Tips">
@@ -107,7 +104,6 @@
 <script src="js/alert.js"></script>
 
 <script>
- 
   var height1 = $("#DCdetail1").height();
 
   if(height1>44 ){
@@ -115,21 +111,16 @@
     $("#DCdetail1").addClass("height");
     $("#open1").show();
   }
-
    $("#open1").click(function(){
-
       $(this).hide();
       $("#DCdetail1").removeClass("height")
       $("#close1").show();
    })
-
     $("#close1").click(function(){
-
       $(this).hide();
       $("#DCdetail1").addClass("height")
       $("#open1").show();
    })
-
 
 var height2 = $("#DCdetail2").height();
 
@@ -138,27 +129,21 @@ var height2 = $("#DCdetail2").height();
     $("#DCdetail2").addClass("height");
     $("#open2").show();
   }
-
    $("#open2").click(function(){
-
       $(this).hide();
       $("#DCdetail2").removeClass("height")
       $("#close2").show();
    })
 
     $("#close2").click(function(){
-
       $(this).hide();
       $("#DCdetail2").addClass("height")
       $("#open2").show();
    })
 
-
-   $(".returnBtn").click(function(){
-
-    window.location.href="change.html"
-
-   })
+ $(".returnBtn").click(function(){
+     window.location.href="change.html"
+ })
     
 /*提交验证*/
 
@@ -168,12 +153,11 @@ $(".goBtn").click(function(){
     var patternPhone= /^1{1}[3578]{1}[0-9]{9}$/;
     var valueName = $("#NAME").val();
     var valuePhone = $("#PHONE").val();
-     var valueAdd = $("#textarea").html();
+    var valueAdd = $("#ADD").val();
 
     if(valueName == ""){
       alert("请输入联系人姓名") 
     }
-
     else if(!patternName.test(valueName)){
        alert("请输入正确的联系人姓名") 
     }
@@ -189,9 +173,7 @@ $(".goBtn").click(function(){
     else{
       window.location.href="success.html"
     }
- 
 })
-
 
 </script>
 
