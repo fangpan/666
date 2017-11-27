@@ -15,8 +15,8 @@ body{
     font-size:15px;
 }
 .nav>li>a {
-   padding-left: 35px;
-   padding-right: 35px;
+   padding-left: 28px;
+   padding-right: 28px;
 }
 @media (min-width: 768px){
     
@@ -31,10 +31,7 @@ body{
     .navbar-collapse .navbar-nav{text-align: center;}
 }
 @media (max-width: 992px){
-    .container{
-        padding-left: 0;
-        padding-right: 0;
-    }
+   
     .nav>li>a {
         padding-left: 30px;
         padding-right: 30px;
@@ -103,7 +100,7 @@ body{
     color: #432d18;
 }
 .tuijian h4, .news h4{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 .tuijian h4 span, .news h4 span, .about h4 span{
     border-bottom: 2px dotted #afa9a3;
@@ -114,9 +111,6 @@ body{
 #myTab{
     margin-right: auto;
     margin-left: 14px;
-}
-#myTab li{
-    margin-right:10px;
 }
 .tuijian .nav-tabs{
     border:none;
@@ -133,13 +127,12 @@ body{
 }
 .tuijian .nav>li>a{
     color: #afa9a3;
-    border: 1px solid #ccc;
 }
 .tuijian .nav-tabs>li.active>a, .tuijian .nav-tabs>li.active>a:focus, .tuijian .nav-tabs>li.active>a:hover {
     color: #fff;
     cursor: pointer;
     background-color: #e45c0e;
-    border:1px solid #e45c0e;
+    border:none;
 }
 .tuijian .tab-pane p{
     font-size: 1.2rem;
