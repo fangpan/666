@@ -183,6 +183,8 @@
 	background: #FF7600;
 	color: #FFF;
         height: 45px;
+	border-radius: 0;
+        border: 0;
 }
 .orderMsg input{
 	border:0;
