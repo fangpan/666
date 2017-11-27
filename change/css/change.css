@@ -291,6 +291,8 @@
 #ADD{
     outline: none;
     width: 100%;
-    padding: 4px 6px;
+    padding: 6px;
     border-radius: 4px;
+    border-color:#DDD;
+    line-height:22px;
 }
