@@ -195,6 +195,10 @@ body{
 .footEWM{
     margin-top: 3%;
 }
+.footEWM>img{
+    display: block;
+    margin: 0 auto;
+ }
 .foot{
     background: #F8EBD5;
     margin-top: 1%;
