@@ -55,10 +55,10 @@ runSection = new FullPage({
 
         if (index === 0) {
         	autoPlay(runPage.thisPage() + 1);
-
+               $(".navBg").css("background","none");
         } else {
         	clearTimeout(interval);
-
+             $(".navBg").css("background","rgba(0,0,0,0.5)");
         }
     }
 });
