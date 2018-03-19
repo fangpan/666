@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+
+<style>
+ #concern{
+ 	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#3D63A7,endcolorstr=#96AFE0,gradientType=0); /*IE*/
+ 	background: -webkit-linear-gradient(#3D63A7, #96AFE0); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#3D63A7, #96AFE0); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#3D63A7, #96AFE0); /* Firefox 3.6 - 15 */
+	background: linear-gradient(#3D63A7,#96AFE0); /* 标准的语法 */
+ }
+</style>
+</head>
+<body>
+   <div class="container" style="background:#FFF;">
+      <div class="row topMsg">
+         <!-- 选择日期 -->
+          <div class="col-md-4">
+              <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">选择日期</span>
+                    <input class="laydate-icon" id="date" aria-describedby="basic-addon1" onclick="laydate({max: laydate.now(-1)})" />
+              </div>
+          </div>
+           <!-- 客户名称 -->
+          <div class="col-md-4">
+              <div class="input-group">
+                    <span class="input-group-addon" id="">客户名称</span>
+                    <input type="text" class="nameInput" id="text">
+                    <div id="word"></div>
+              </div>
+          </div>
+        <!-- 查询 -->
+          <div class="col-md-4">
+              <div class="searchAdd">
+                    <input type="button" value="查 询" id="searchName" style="background:#00B8B4;">
+                    <input type="button" value="添加关注" id="concern" disabled="disabled">
+              </div>
+          </div>
+      </div>
+ 
+     <!-- 调用量 -->
+     <div class="row CALL">
+
+     </div> <!-- 调用量完 -->
+  </div>
+
+    <!-- 基础信息展示 -->
+    <div class="container msgShow" style="background:#FFF;">
+       <table class="table table-bordered text-center" >
+          <caption>客户基础信息展示</caption>
+          <thead>
+            <tr>
+                <th>序号</th>
+                <th>客户名称</th>
+                <th>账号名称</th>
+                <th>账号开通时间</th>
+                <th>账号到期时间</th>
+                <th>账号累计调用量</th>
+                <th>订购服务项目数量</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+      </table>
+   </div>
+
+    <!-- 基础信息展示 -->
+    <div class="container" style="background:#FFF;margin-top:10px;padding: 20px;">
+     
+       <div class="row-fluid">
+             <div class="col-md-6 daypreleft ">
+                
+                <h4>                    
+                   数据调用量
+                </h4>
+                <div id="daypre" class="daypre"></div>
+             </div>
+             <div class="col-md-6">
+                <h4>近2年月日调用趋势图</h4>
+                <div id="twoYear" class="twoYear"></div>
+            </div>
+       </div>
+   
+     <!-- 备注信息 -->
+	   <div class="beizhu">
+	      <table class="table table-bordered text-center" >
+	          <thead>
+	            <tr>
+	                <th>备注信息</th>
+	                <th>备注添加人</th>
+	                <th>操作</th>
+	            </tr>
+	          </thead>
+            <tbody id="List"></tbody>
+            <tbody id="Searchresult" style="display:none;"></tbody>
+            <tfoot>
+                 <tr> 
+                     <td colspan="3" id="Pagination" class="pagin"> </td>
+                 </tr>
+                 <tr>
+                    <td colspan="3" class="addTD">
+                        <span>添加备注</span>
+                        <input type="text" class="addVal">
+                        <input type="button" value="添加" class="addbtn">
+                   </td>
+                </tr>
+            </tfoot>
+	      </table>
+	   </div><!-- 备注信息完 -->
+
+     <!-- 查询 -->
+      <div class="row search">
+         <!-- 选择日期 -->
+          <div class="col-md-5">
+              <div class="input-group">
+                    <span class="input-group-addon">状态码</span>
+                    <input type="text" class="statu" id="statuCode"> 
+              </div>
+          </div>
+           <!-- 客户名称 -->
+          <div class="col-md-5">
+              <div class="form-group">
+                    <select class="form-control pattName" id="pattName">
+            						
+          					</select>
+                    <input type="text" class="pattInput" id="pattInput">
+                    <div id="chosePat"></div>
+              </div>
+          </div>
+        <!-- 查询 -->
+          <div class="col-md-1">
+              <div class="searchAdd">
+                    <input type="button" value="查 询" id="statuSearch" style="background:#00B8B4;">
+              </div>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/laydate.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/newline-echarts.js"></script>
+<script src="js/daypre.js"></script>
+<script src="js/twoYear.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/edit.js"></script>
+<script src="js/search.js"></script>
+
+
+<!-- 日期选择 -->
+<script type="text/javascript">
+
+  laydate.skin('molv');
+  
+</script>
+
+<!-- 客户名称模糊搜索 -->
+<script>
+$(function(){
+    $('#text').keyup(function(){
+      var keywords = $(this).val();
+      if (keywords=='') { 
+
+        $('#word').hide(); 
+        return 
+      };
+      $.ajax({
+        url: 'http://suggestion.baidu.com/su?wd=' + keywords,
+        dataType: 'jsonp',
+        jsonp: 'cb', //回调函数的参数名(键值)key
+        success:function(data){
+          $('#word').empty().show();
+          if (data.s=='')
+            {
+              $('#word').append('<div class="error">没找到  "' + keywords + '"</div>');
+            }
+          $.each(data.s, function(){
+            $('#word').append('<div class="click_work">'+ this +'</div>');
+          })
+        }
+      })
+    })
+    //点击搜索数据复制给搜索框
+    $(document).on('click','.click_work',function(){
+      var word = $(this).text();
+      $('#text').val(word);
+      $('#word').hide();
+      $("#searchName").removeAttr("disabled","disabled");
+      $("#concern").removeAttr("disabled","disabled")
+    })
+
+  })
+</script>
+
+
+<!-- 调用量 -->
+<script>
+
+ var json=[  
+            {
+              "id":"a1",
+              "name":"当日的调用总量",
+              "callnum":"67",
+              "totle":"100"
+            },
+             {
+              "id":"a2",
+              "name":"当日的累计调用量",
+              "callnum":"160",
+              "totle":"200"
+            },
+             {
+              "id":"a3",
+              "name":"当月的累计调用总量",
+              "callnum":"200",
+              "totle":"300"
+            }
+          
+     ]
+for(var i=0;i<json.length;i++){
+
+  var item = json[i]
+
+  var  pre1= (item.callnum/item.totle)*100;
+       pre1 = pre1.toFixed(2)
+
+  var nocall = item.totle-item.callnum
+  var  pre2 = (nocall/item.totle)*100;
+  pre2 = pre2.toFixed(2)
+
+var H =  '<div class="col-md-4 callNum">'
+           +'<h5>'+item.name+'</h5>'
+           +'<div class="progress" title="未调用量:'+nocall+' 占比:'+pre2+'%">'
+           +'<div class="progress-bar" role="progressbar"  style="width:'+pre1+'%;" title="调用量:'+item.callnum+' 占比:'+pre1+'%"></div>'
+           +'</div>'
+           +'<h3 class="text-right">'+item.totle+'</h3>'
+           +'</div>'
+
+ $(".CALL").append(H);
+}
+</script>
+
+
+<!-- 基础信息查询 -->
+<script>
+
+ var  json=[  
+            {
+              "id":"a1",
+              "num":"1",
+              "name":"张三",
+              "ghost":"张山",
+              "opentime":"2007-10-10",
+              "closeime":"2008-10-10",
+              "totleuse":"1233333",
+              "usenum":"2233333",
+            },
+            {
+              "id":"a2",
+              "num":"2",
+              "name":"张四",
+              "ghost":"张四",
+              "opentime":"2007-10-10",
+              "closeime":"2008-10-10",
+              "totleuse":"1233333",
+              "usenum":"2233333",
+            }
+      ]
+
+  for(var i=0;i<json.length;i++){
+
+    var item = json[i]
+    
+    var H = ''
+                +'<tr>'
+                +'<td>'+item.num+'</td>'
+                +'<td>'+item.name+'</td>'
+                +'<td>'+item.ghost+'</td>'
+                +'<td>'+item.opentime+'</td>'
+                +'<td>'+item.closeime+'</td>'
+                +'<td>'+item.totleuse+'</td>'
+                +'<td>'+item.usenum+'</td>'
+                +'</tr>'
+            +''    
+
+   $(".msgShow table tbody").append(H)
+  }
+</script>
+
+<!-- 客户名查询 -->
+<script>
+  
+  $("#searchName").click(function(){
+
+    var val2 = $("#date").val(); 
+
+    var val = $("#text").val();
+ 
+    if(val2==""){ alert("请选择日期") }
+      
+    else if(val==""){  alert("请输入客户名称")}
+
+    else if($('#word').css('display')!==('none')){
+        alert("未找到相关项")
+    }
+
+     else{ 
+        alert(val2)
+      } 
+   })
+  
+  </script>
+
+<!-- 关注 -->
+<script>
+
+   $("#concern").click(function(){
+      var val = $("#text").val();
+      alert(val)
+      var obj=$(this)
+   })
+
+</script>
+
+<!-- 状态码服务项查询 -->
+<script>
+
+   $("#statuSearch").click(function(){
+  
+     var h1 = $("#statuCode").val();
+
+     var h2 =  $("#pattInput").val();
+
+     if(null == h1 || "undefined" == typeof(h1) || "" == h1){
+        alert("请输入状态码")
+     }
+     else if(null == h2 || "undefined" == typeof(h2) || "" == h2){
+        alert("请输入服务项")
+     }else{
+
+       alert("OK")
+       }
+   })
+
+</script>
+
+
+<script type="text/javascript">
+$(function(){
+
+  $("#text").click(function(event){
+
+    var obj = $(this)
+        var e=window.event || event;
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            e.cancelBubble = true;
+        }  
+
+        $("#word").show();
+    });
+   
+    $("#pattInput").click(function(event){
+
+    var obj = $(this)
+        var e=window.event || event;
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            e.cancelBubble = true;
+        }  
+
+        if(obj.val()==""){
+           $("#chosePat").hide()
+         } else{
+        $("#chosePat").show();
+        }
+    });
+
+})
+
+   document.onclick = function(){
+        $("#word").hide();
+         $("#chosePat").hide();
+    };
+
+
+</script>
+
