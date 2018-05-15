@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+	  <link rel="stylesheet" type="text/css" href="public/bootstrap-3.3.4/css/bootstrap.min.css" />
+	  <link rel="stylesheet" type="text/css" href="public/css/common2.css" />
+	  <link rel="stylesheet" type="text/css" href="public/artDialog/css/ui-dialog.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/demo2.css" />
+
+<style>
+ 
+   input.form-control{
+      outline: none!important;
+      -webkit-appearance: none;   
+   }
+   .titleP{
+        font-size: 15px;
+    padding: 8px 15px;
+   }
+  .resP span{
+    color: red;
+  }
+  .cardType{
+    background: none;
+  }
+  .glyphicon-remove{
+    right: 15px;
+    pointer-events:auto!important;
+  }
+  .CARDTYPE{
+    margin-bottom: 10px;
+  }
+  .numRes{
+     font-size: 15px;
+     text-align: center;
+     margin-top: 10px;
+  }
+  .listNum{
+     font-size: 15px;
+    padding: 8px 15px;
+    border-bottom: 1px solid #F3F2F1;
+  }
+
+  .title{
+ font-family: '微软雅黑';
+ font-size: 16px;
+}
+.box{
+  margin: 0 auto;
+ width:200px;
+ height: 30px;
+ border:1px solid #ccc;
+ margin-top: 10px;
+ line-height: 30px;
+}
+
+.box input.paw{
+ width: 33px;
+ height: 25px;
+ line-height: 25px;
+ margin-left: -9px;
+ border:none;
+ border-right: 1px dashed #ccc;
+ text-align: center;
+ -webkit-appearance: none; 
+ border-radius: 0!important;
+}
+.box input.paw:nth-child(1){
+ margin-left: 0;
+}
+.box .pawDiv:nth-child(6) input.paw{
+ border: none;
+}
+ .box input.paw:focus{outline:0;}
+.box .pawDiv{
+ display: inline-block;
+ float: left;
+}
+.point{
+ font-size: 14px;
+ color: #ccc;
+ margin: 5px 0;
+}
+.modal-body p{
+text-align: center;
+clear: both;
+    margin-top: 10px;
+}
+
+.input-group-addon{
+  background:#FFF!important;
+}
+.modal-dialog {
+    margin-top: 40%;
+}
+.topM{
+   margin-top:25%!important;
+} 
+ </style>
+
+
+  <title></title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="bcn">
+            <ul class="pager">
+                <li class="previous">
+                <a href="javascript:window.history.go(-1);"><img src="public/images/new/left.png" alt="" width="24"></a>
+                </li>
+                <li class="center-block">号码选择</li>
+            </ul>
+        </div>
+
+        <div class="choosenum">
+            <form action="order.html" method="post">
+                <input type="hidden" value="" name="spec_id">
+                <input type="hidden" value="" name="pay_type">
+                <input type="hidden" value="" name="offer">
+                <input type="hidden" value="" name="plan">
+                <input type="hidden" value="" name="number">
+                <input type="hidden" value="" name="mn">
+                <input type="hidden" value="" name="masterNumber">
+                 <p class="titleP">请输入身份证号，查询可办卡数量：</p>
+                <div class="row" style="border-bottom: 1px solid #ededed;">
+                   <div class="form-group">
+					  <div class="input-group" style="padding: 0 15px;">
+					    <input type="text" class="form-control" id="IdCard">
+					    <span class="input-group-addon" id="searchIdCard">查询</span>
+					  </div>
+					</div>
+                </div>
+                <p class="tit01 resP">查询结果：已办理 <span>2</span> 张号卡，可选择 <span>3</span> 张主卡，<span>3</span> 张副卡</p>
+
+                <p class="listNum">请选择主副卡号码。【注意：如老用户需绑定副卡，则需选择同地区号码。】 </p>
+                <div class="row" style="border-bottom: 1px solid #ededed;">
+                    <div class="areaList col-xs-6">
+                      <div id="selectBox" class="btn-group">
+                         <button type="button" class="btn center-block dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <span class="txt"></span> <span class="caret"></span>
+                         </button>
+                         <ul>
+                            <li>全部</li>
+                         </ul>
+                      </div>
+                    </div>
+                    <div class="numType tabCut col-xs-6">
+                         <ul>
+                             <li class="selected">1</li>
+                             <li>2</li>
+                             <li>3</li>
+                         </ul>
+                    </div>
+                </div>
+                <div class="row numList" style="min-height: 140px;">
+
+                </div>
+                <div class="page turnPage" style="clear: both;">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <div class="text-center" id="prev">
+                        				    <img src="public/images/new/pageleft.png" alt="" width="24">
+                        				    <span>上一页</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center" id="next">
+                                    <span>下一页</span>
+				                            <img src="public/images/new/pageright.png" alt="" width="24"> 
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="row" style="text-align: center;margin: 10px 0;">
+		                    <input class="btn btn-success" id="addTOZhu" type="button" value="添加到主卡">
+		                    <input class="btn btn-success" id="addTOFu" type="button" value="添加到副卡">
+                     </div>
+                </div>
+
+                <p class="numRes">号码选择结果</p>
+                <div class="row" style="border-bottom: 1px solid #ededed;">
+             
+					 <div class="form-group CARDTYPE">
+					      <div class="input-group" style="padding: 0 15px;">
+							 <span class="input-group-addon cardType">主卡</span>			   
+						     <input type="text" class="form-control" id="ZHUNUM" placeholder="选择主卡，必选项" readonly="">
+						     <span class="glyphicon glyphicon-remove form-control-feedback" onclick="delZhu()"></span>
+						  </div>
+					  </div>
+
+					  <div class="form-group CARDTYPE SiGNFU">
+					      <div class="input-group" style="padding: 0 15px;">
+							 <span class="input-group-addon cardType">副卡</span>			   
+						     <input type="text" class="form-control FUNUM" placeholder="选择副卡，非必选项" readonly="">
+						     <span class="glyphicon glyphicon-remove form-control-feedback" onclick="delFu(this)"></span>
+						  </div>
+					  </div>
+
+					     <div class="row" style="text-align: center;margin: 10px 0;">
+		                    <input class="btn btn-success" id="addFUcard" type="button" value="添加一个副卡">
+		                    <input class="btn btn-success" id="oldAsFUcard" type="button" value="老号码做副卡">
+                         </div>
+                </div>
+
+                <div style="padding:15px;">
+                    <div class="read">
+                        <label>
+                            <input type="radio" onclick="javascript:this.value='ok';" name="agree" value=""> 我已经阅并读同意
+                        </label>
+                        <a href="agreement.html">
+                             <span style="color: red;" onclick="$('input[name=agree]').prop('checked',true)">《中国电信协议 招商银行个人定期存款止付担保协议》</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 底部工具栏 -->
+      <div class="app-fixed">
+        <div class="container-fluid">
+          <div class="app-nav">
+            <div class="row">
+              <div class="col-xs-3 col-sm-3 appItem">
+                  <a target="_blank" href="http://im.189.cn/cw/?cf=1&amp;cid=8024&amp;manid=910"> 
+                    <img src="public/images/new/bottom_service.png" alt=""></a>
+                    <span>在线客服</span>
+              </div>
+              <div class="col-xs-3 col-sm-3 appItem">
+                <a href="orderSearch.html">
+                  <img src="public/images/new/bottom_search.png" alt=""></a>
+                  <span>订单查询</span></div>
+              <div class="col-xs-6 col-sm-6 appItem pull-right" style="padding-right: 0px;">
+                <div style="background:#FF7600;height:46PX;line-height:46PX;color: #FFF;" id="numNext">
+                     下一步
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- 确认删除弹框 -->
+<div class="modal fade" id="ZHUModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+          <p>确认删除该主卡吗？</p>
+      </div>
+      <div class="modal-footer" style="text-align: center;">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="confirmDelZhu()">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 老号码弹框 -->
+
+<div class="modal fade" id="oldNumModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >输入老手机号</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text"  class="form-control" maxlength="11" id="OldNumInput">
+      </div>
+      <div class="modal-footer" style="text-align:center;">
+           <button type="button" class="btn" style="background:#FF7600;color:#FFF" id="sendCode">发送验证码</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 验证弹框 -->
+
+<div class="modal fade" id="pattenModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >输入验证码</h4>
+      </div>
+      <div class="modal-body" style="padding-top: 0;">
+           <p>验证码已发送至 <span id="sendOldNum"></span></p>
+          <!--  <p id="resetCode"><span id="time"></span> 秒后重发</p> -->
+           <div class="box"></div>
+           <p> <button type="button" class="btn" style="background:#FF7600;color:#FFF" id="confirmAdd">确定添加</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="public/js/password.js"></script>
+<script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="public/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/artDialog/dist/dialog-min.js"></script>
+<script type="text/javascript" src="public/js/common.js"></script>
+<script type="text/javascript" src="public/js/alert.js"></script>
+
+
+
+<script type="text/javascript">
+        (function($){
+            $(document).ready(function(){
+            	
+            	$('.prevName').html('号码选择');
+
+                var numConfig={
+                     numberList:[{type:1,accnbr:"18900000001",price:"100",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000002",price:"",areaName:"上海市上海市上海市",areaId:"021"},{type:1,accnbr:"18900000003",price:"200",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000004",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000005",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000006",price:"",areaName:"上海市上海市上海市",areaId:"027"},{type:0,accnbr:"18900000007",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000008",price:"",areaName:"北京",areaId:"010"},{type:0,accnbr:"18900000009",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000010",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000011",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000012",price:"",areaName:"上海市上海市上海市",areaId:"027"},{type:0,accnbr:"18900000013",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000014",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000015",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000016",price:"",areaName:"上海市上海市上海市",areaId:"027"},{type:0,accnbr:"18900000017",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000018",price:"",areaName:"北京",areaId:"010"},{type:0,accnbr:"18900000019",price:"",areaName:"重庆",areaId:"028"},{type:0,accnbr:"18900000020",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000021",price:"",areaName:"黄石",areaId:"0714"},{type:0,accnbr:"18900000022",price:"",areaName:"上海市上海市上海市",areaId:"027"},{type:0,accnbr:"18900000023",price:"",areaName:"湖南",areaId:"028"},{type:0,accnbr:"18900000024",price:"",areaName:"北京",areaId:"010"},{type:0,accnbr:"18900000025",price:"",areaName:"安徽",areaId:"0755"},{type:0,accnbr:"18900000026",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000027",price:"",areaName:"宜昌",areaId:"0718"},{type:0,accnbr:"18900000028",price:"",areaName:"上海市上海市上海市",areaId:"027"},{type:0,accnbr:"18900000029",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000030",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000031",price:"",areaName:"武汉市武汉市武汉市",areaId:"027"},{type:0,accnbr:"18900000032",price:"",areaName:"北京",areaId:"010"}],
+                    numberType:{0:'公共号码',1:'专属号码'},
+                    maxSelect:1
+                };
+                if(numConfig.maxSelect < 1){ numConfig.maxSelect=1; }
+                var page={
+                    curPage:0,
+                    tempData:[],
+                    numberList:[],
+                    pageSize:10,
+                    maxPage:1,
+                    selected:[],
+                    masterNumber:'',
+                    resetData:function(list){
+                        page.curPage=0;
+                        page.maxPage=1;
+                        //page.selected=[],
+                        page.numberList=$.extend([], list);
+                        page.maxPage=Math.ceil(page.numberList.length/page.pageSize);
+                    },
+                    init:function(configData){
+                        var numTypeGroup={};//configData.numberType;
+                        var areaGroup={};
+
+                        $.each(numConfig.numberList,function(key,val){
+                            if($.type(val.areaId)!='undefined'){
+                                areaGroup[val.areaId]=val.areaName;
+                            }
+
+                            if($.type(val.type)!='undefined'){
+                                numTypeGroup[val.type]=configData.numberType[val.type];
+                            }
+
+                        });
+
+                        $(".numType ul").html('');
+                        $.each(numTypeGroup,function(key,val){
+                            $(".numType ul").append('<li data-val="'+key+'">'+val+'</li>');
+                        });
+
+                        var areaListObj=$(".areaList");
+                        var areaCount=$.countOA(areaGroup);
+                        areaListObj.find("ul").html('');
+                        if(areaCount>2){
+                            areaListObj.find("#selectBox").addClass('btn-group');
+                            areaListObj.find("#selectBox button").show();
+                            areaListObj.find("#selectBox ul").addClass('dropdown-menu').attr('role','menu');
+                            
+                        }else{
+                            areaListObj.find("#selectBox ul").addClass('tabCut');
+                        }
+
+                        $.each(areaGroup,function(key,val){
+                            areaListObj.find("ul").append('<li data-val="'+key+'">'+val+'</li>');
+                        });
+
+                        areaListObj.find("ul").find('li').first().click();
+
+                    },
+                    next:function(){
+                        if(page.maxPage!=0 && (page.curPage+1)>page.maxPage){
+                            alert('没有下一页！');return false;
+                        }
+                        page.curPage++;
+                        page.print(page.curPage);
+                    },
+                    prev:function(){
+                        if(page.maxPage!=0 && (page.curPage-1)<1){
+                            alert('没有上一页！');return false;
+                        }
+                        page.curPage--;
+                        page.print(page.curPage);
+                    },
+                    print:function(p){
+                        var offset=(p-1)*page.pageSize;
+                        var pageData=page.numberList.slice(offset,offset+page.pageSize);
+                        $(".numList").html('');
+                        $.each(pageData,function(key,val){
+                            var checked= $.inArray(val.accnbr,page.selected)<0?'':'checked';
+                            $(".numList").append('<div class="col-xs-6 none-padding"><label><input '+checked+' type="radio" name="number_tmp" value="'+val.accnbr+'">'+val.accnbr+'<small>'+(val.price!=''?'(预存'+val.price+')':'')+'</small></label></div>');
+                        });
+                    }
+                };
+                $(".page #next").click(function(){
+                    page.next();
+                });
+
+                $(".page #prev").click(function(){
+                    page.prev();
+                });
+
+              
+                $(".areaList ul").on('click','li',function(){
+                    var thisDataVal=$(this).attr('data-val');
+                    $(this).parent().find('li').removeClass('active');
+                    $(this).addClass('active');
+                    
+                    var oldText = $(this).html();
+                    
+                    //地区长度大于5隐藏
+                    
+                     if (oldText.length > 5) {  
+
+                         var newText = oldText.substring(0,5)+"..."; 
+                       
+                        $('#selectBox').first().find('button .txt').html(newText);
+                      } 
+                      else{
+                        $('#selectBox').first().find('button .txt').html(oldText);
+                      } 
+
+                     var data=[];
+                   
+                        $.each(numConfig.numberList,function(key,val){
+                            if(val.areaId==thisDataVal){
+                                data.push(val);
+                            }
+                        })
+                    
+                    page.tempData=data;
+                    $(".numType ul").find('li').first().click();
+                });
+                $(".numType ul").on('click','li',function(){
+                    var thisDataVal=$(this).attr('data-val');
+
+                    $(this).parent().find('li').removeClass('active');
+                    $(this).addClass('active');
+                    var data=[];
+                    $.each(page.tempData,function(key,val){
+                        if(val.type==thisDataVal){
+                            data.push(val);
+                        }
+                    })
+                    page.resetData(data);
+                    $(".page #next").click();
+                });
+
+                page.init(numConfig);
+
+            });
+        })(jQuery)
+</script>
+
+
+<script>
+
+//身份证查询
+
+$("#searchIdCard").click(function(){
+    
+   var IdCardVal = $("#IdCard").val();
+
+     if(IdCardVal==""){
+     	alert("请输入身份证号")
+     }
+    else{
+    	alert("查询" + IdCardVal);
+    }
+	
+})
+
+var zhuL = 1;//查出可以办理主卡张数
+var fuL = 2;//查出可以办理副卡张数
+var data =[];
+
+//添加到主卡
+
+ $("#addTOZhu").click(function(){
+
+ 	if(zhuL ==0){
+	  alert("不能办理主卡");
+    	return false;
+ 	}
+
+ if($("#ZHUNUM").val()!=""){
+   	  alert("请先删除再添加");
+   	  return false;
+   }
+
+ 	 var L = $("input[name='number_tmp']:checked").length;
+     var NUM = $("input[name='number_tmp']:checked").val();
+     var result = data.indexOf(NUM);
+
+    if(L ==0){
+    	alert("请选择号码作为主卡")
+    }
+	else if(result =="-1"){
+            $("#ZHUNUM").val(NUM);
+	        data.push(NUM);
+       }
+	   else{
+	   	 alert("已经选择，请重新选择");
+	   	 return false;
+	   }
+       console.log(data)
+ })
+
+
+//删除主卡弹框
+
+function delZhu(){
+
+	var ZHUVal =  $("#ZHUNUM").val();
+
+    if(ZHUVal!=""){
+
+     $('#ZHUModal').modal('show')
+
+    }
+}
+
+//确认删除主卡
+
+function confirmDelZhu(){
+
+   var val = $("#ZHUNUM").val();
+
+     $('#ZHUModal').modal('hide')
+  
+      $("#ZHUNUM").val("");
+       data.splice($.inArray(val,data),1);
+	
+     console.log(data)
+}
+
+
+//添加到副卡
+
+ $("#addTOFu").click(function(){
+
+   if( $("#ZHUNUM").val()==""){
+   	  alert("请先添加主卡");
+   	  return false;
+   }
+
+    if(fuL ==0){
+    	alert("不能办理副卡");
+    	return false;
+   }
+
+ 	 var L = $("input[name='number_tmp']:checked").length;
+
+     var NUM = $("input[name='number_tmp']:checked").val();
+
+    if(L ==0){
+    	alert("请选择号码作为副卡")
+    }
+	else if($(".SiGNFU").last().find("input").val()==""){
+
+     var result = data.indexOf(NUM);
+
+       if(result =="-1"){
+       	$(".FUNUM").last().val(NUM);
+       	 data.push(NUM);
+       	 console.log(data)
+       }
+	   else{
+	   	 alert("已经选择，请重新选择");
+	   	 return false;
+	   }
+	}
+
+   else{
+   	  alert("请先添加副卡")
+   }
+
+ })
+
+
+//添加一个副卡项
+
+$("#addFUcard").click(function(){
+
+	if($(".FUNUM").last().val()==""){
+
+		alert("请先选择副卡")
+	}
+	else if($(".SiGNFU").length < fuL ){
+	   var CLONE =  $(".SiGNFU").last().clone();
+
+	   CLONE.find("input").val("");
+
+	   $(".SiGNFU").last().after(CLONE)
+	  }
+	  else{
+	  	alert("最多办理张"+fuL+"副卡")
+	  }
+});
+
+
+//删除副卡项
+
+function delFu(obj){
+
+  var ths = $(obj);
+
+   if($(".SiGNFU").length == 1) {
+
+       if(ths.parents(".SiGNFU").find("input").val()!=""){
+
+		var val = ths.parents(".SiGNFU").find("input").val();
+	       ths.parents(".SiGNFU").find("input").val("");
+	       data.splice($.inArray(val,data),1);
+
+		   console.log(data)
+		}
+   }
+	else{
+
+       if(ths.parents(".SiGNFU").find("input").val()!=""){
+
+			 ths.parents(".SiGNFU").remove();
+
+		     var val = ths.parents(".SiGNFU").find("input").val();
+
+		     data.splice($.inArray(val,data),1);
+
+			console.log(data)
+	     }
+    }
+};
+
+
+//老号码做副卡
+
+$("#oldAsFUcard").click(function(){
+
+    if( $("#ZHUNUM").val()==""){
+   	  alert("请先添加主卡");
+   	  return false;
+   }
+   
+   if($(".FUNUM").last().val()!=""){
+
+	   alert("请先添加副卡")
+   }else{
+
+       $('#oldNumModal').modal('show');
+       $("#OldNumInput").val("");
+  }
+
+})
+
+//发送验证码
+
+$("#sendCode").click(function(){
+
+ /*$(".modal-dialog").removeClass("topM")*/
+
+ var oldNum = $("#OldNumInput").val();
+
+   var pattern =  /^1{1}[3578]{1}[0-9]{9}$/;
+
+   if(oldNum == ""){
+   	  alert("请输入老手机号");
+   	  return false;
+   }
+   else if(!pattern.test(oldNum)){
+        alert('请输入正确的手机号');
+      
+        return false 
+    }
+   else{  
+      	 $('#oldNumModal').modal('hide');
+         $('#pattenModal').modal('show');
+         $(".paw").val("");
+         $("#sendOldNum").html(oldNum)
+         //resetCode();
+     }
+})
+
+
+//倒计时
+/*function resetCode(){
+  var second = 6;
+  $('#time').html(second);
+  var timer = null;
+  timer = setInterval(function(){
+    second -= 1;
+    if(second >0 ){
+      $('#time').html(second);
+    }else{
+      clearInterval(timer);
+      $("#resetCode").hide();
+    }
+  },1000);
+}*/
+
+
+//验证发送码添加老号码
+
+var resCode = 666666 ;  //返回的验证码
+
+  $("#confirmAdd").click(function(){
+
+    if (getPassword() ==""){
+    	 alert("请输入验证码")
+    }
+   else if(getPassword()!= resCode){
+       alert("验证码错误");
+       $(".paw").val("");
+   }else{
+     	
+     	$('#pattenModal').modal('hide');
+
+      var oldNum = $("#OldNumInput").val();
+
+      var result = data.indexOf(oldNum);
+
+  	  if(result =="-1"){
+  	        $(".FUNUM").last().val(oldNum);
+  	       	 data.push(oldNum);
+  	       	 console.log(data)
+  	       }
+  		   else{
+  		   	 alert("已经存在，请重新选择");
+  		   	 return false;
+  		   }
+      }
+    
+  })
+
+
+  //点击下一步
+
+  $("#numNext").click(function(){
+
+     if($("#ZHUNUM").val()==""){
+    	alert("请选择主卡")
+    }
+    else if($("input[name=agree]:checked").length<1){
+       alert('请先阅读"中国电信协议"');return false;
+    }
+  
+    else{
+
+          var json = {};
+       
+       //主卡
+        
+          var ZHUCARD = $("#ZHUNUM").val();
+          json.ZHUCARD = ZHUCARD; 
+        
+
+       //副卡
+         var FUCARD = []
+        for(var i=0;i<$(".SiGNFU").length;i++){
+            
+            var parArrF = {};
+            var FUCARDval = $(".FUNUM").eq(i).val();
+            parArrF.num = FUCARDval; 
+
+            FUCARD.push(parArrF)              
+           }  
+          
+           json.FUCARD = FUCARD; 
+         
+           console.log(json); 
+
+           window.location.href="order.html"
+
+    }
+                 
+});
+
+</script>
+
+
+
+
+
+
+
