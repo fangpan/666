@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+	  <link rel="stylesheet" type="text/css" href="public/bootstrap-3.3.4/css/bootstrap.min.css" />
+	  <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+    <title>获奖名单</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;">
+          <div style="position: relative;">
+              <img src="public/images/winbg.png" alt="" width="100%" >
+              <p class="openTime">(<span>2018年5月1日</span>开放)</p>
+              <div class="winList">
+                   <p class="rank">
+                       <img src="public/images/winnerbtn.png" alt="" width="120" >
+                   </p>
+                   <div class="listCON">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>名次</th>
+                              <th>编号</th>
+                              <th>宠物名</th>
+                              <th>票数</th>
+                              <th>视频</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                        
+                          </tbody>
+                       </table>
+                   </div>
+              </div>
+          </div>
+
+         <div class="getWay">
+            <h4> 领取方式：
+                <img src="public/images/nicetime.png" alt="" width="120">
+            </h4>
+            <p>4月23日4月23日4月23日4月23日4月23日4月23日4月23日4月23日4月23日</p>
+         </div>
+    </div>
+   
+</body>
+</html>
+
+<script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="public/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/js/alert.js"></script>
+
+<script>
+   
+   var json =[{"id":"aa","rank":"1","num":"3213","name":"汪星人1","vote":"43242"},{"id":"bb","rank":"2","num":"3213","name":"汪星人2","vote":"43242"},{"id":"cc","rank":"3","num":"3213","name":"汪星人3","vote":"43242"},{"id":"dd","rank":"4","num":"3213","name":"汪星人4","vote":"43242"},{"id":"bb","rank":"5","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"6","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"7","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"8","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"9","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"10","num":"3213","name":"汪星人2","vote":"43242"},{"id":"aa","rank":"1","num":"3213","name":"汪星人1","vote":"43242"},{"id":"bb","rank":"2","num":"3213","name":"汪星人2","vote":"43242"},{"id":"cc","rank":"3","num":"3213","name":"汪星人3","vote":"43242"},{"id":"dd","rank":"4","num":"3213","name":"汪星人4","vote":"43242"},{"id":"bb","rank":"5","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"6","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"7","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"8","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"9","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"10","num":"3213","name":"汪星人2","vote":"43242"},{"id":"aa","rank":"1","num":"3213","name":"汪星人1","vote":"43242"},{"id":"bb","rank":"2","num":"3213","name":"汪星人2","vote":"43242"},{"id":"cc","rank":"3","num":"3213","name":"汪星人3","vote":"43242"},{"id":"dd","rank":"4","num":"3213","name":"汪星人4","vote":"43242"},{"id":"bb","rank":"5","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"6","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"7","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"8","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"9","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"10","num":"3213","name":"汪星人2","vote":"43242"},{"id":"bb","rank":"31","num":"3213","name":"汪星人2","vote":"43242"}]
+   
+    for(var i=0;i<30;i++){
+
+      var item=json[i];
+      
+      var H=''
+              +'<tr>'
+              +'<td>'+item.rank+'</td>'
+              +'<td>'+item.num+'</td>'
+              +'<td>'+item.name+'</td>'
+              +'<td>'+item.vote+'</td>'
+              +'<td style="color:red;" id="'+item.id+'" onclick="lookMV(id)">点击观看</td>'
+              +'</tr>'
+           +'' 
+
+    $('.table tbody').append(H);
+      
+  }
+
+  function lookMV(id){
+
+      alert(id);
+    var L = $("tr").length;
+    console.log(L)
+  }
+
+</script>
+
+
+
+
+

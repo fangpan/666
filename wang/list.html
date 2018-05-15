@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+     <meta name="apple-mobile-web-app-capable" content="yes"/>
+     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+     <meta name="format-detection" content="telephone=no"/>
+	   <link rel="stylesheet" type="text/css" href="public/bootstrap-3.3.4/css/bootstrap.min.css" />
+	   <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+     <title>列表</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;">
+             <div class="banner">
+                 <img src="public/images/11.png" alt="" width="100%" height="320">
+
+                 <div class="input-group search">
+                     <input type="text" class="form-control" value="" placeholder="输入选手姓名或编号" id="VAL" >
+                     <span class="serchBtn" onclick="searchBTN()"> 搜 索</span>
+                 </div>
+             </div>
+
+              <div id="wrapper">
+                 <div id="scroller">
+                      <div id="pullDown"></div> 
+                      
+                      <div id="thelist">
+                        
+                      </div>
+                      <div id="pullUp">
+                          <span class="pullUpIcon"></span>
+                          <span class="pullUpLabel"></span>
+                      </div> 
+                  </div>
+              </div>
+        </div>
+   
+    <!-- 按钮组-->
+    <div class="app-fixedIndex">
+       <div class="col-xs-4 BTNgroup">
+           <a href="award.html"><img src="public/images/btn1.png" alt="" width="100%" ></a>
+       </div>
+       <div class="col-xs-4 BTNgroup">
+           <a href="index.html"><img src="public/images/btn4.png" alt="" width="100%"></a>
+       </div>
+       <div class="col-xs-4 BTNgroup">
+           <a href="http://61.183.0.29:8181/cfhd/offerIndex.htm"><img src="public/images/btn3.png" alt="" width="100%" ></a>
+       </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="public/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/js/alert.js"></script>
+<script type="text/javascript" src="public/js/iscroll.js"></script>
+<script>
+
+/*搜索*/
+   function searchBTN(){
+
+   var val = $("#VAL").val();
+   var regu = "^[ ]+$";
+   var re = new RegExp(regu);
+   var bull=  re.test(val);
+ 
+    if(val == "" || bull==true){
+       alert("不能为空")
+    }
+     else{
+        alert(val)
+     }
+   }
+</script>
+
+<!-- 下拉加载 -->
+<script>
+ (function ($) {
+    var myScroll,
+        pullDownEl,
+        pullDownOffset,
+        pullUpEl,
+        pullUpOffset;
+
+    //自己定义的变量
+    var userDataSum,//存储数据的变量
+        addNum = 0,
+        stepLength = 10,//每次加载的步长
+        sumL=0;//数据的长度
+    
+    function refreshScrollBar() {
+       
+        setTimeout(function () {  
+            myScroll.refresh();   
+        }, 1000); 
+    }
+
+    //初始化数据
+    function pullUpAction () {
+      
+        setTimeout(function () {  
+            //TODO 上拉添加数据
+            add(userDataSum);
+           
+            myScroll.refresh();   
+        }, 1000); 
+    }
+
+    function loaded() {
+
+        pullDownEl = document.getElementById('pullDown');
+        pullDownOffset = pullDownEl.offsetHeight;
+        pullUpEl = document.getElementById('pullUp');
+        pullUpOffset = pullUpEl.offsetHeight;
+        myScroll = new iScroll('wrapper', {
+            useTransition: true,
+            topOffset: pullDownOffset,
+            onScrollMove: function () {
+                if (this.y > 10 && !pullDownEl.className.match('flip')) {
+                    pullUpEl.querySelector('.pullUpIcon').innerHTML = '<img src="public/images/load.gif" alt="" width="30">';
+                    this.minScrollY = 0;
+                } else if (this.y < 10 && pullDownEl.className.match('flip')) {
+                    pullUpEl.querySelector('.pullUpIcon').innerHTML = '<img src="public/images/load.gif" alt="" width="30">';
+                    this.minScrollY = -pullDownOffset;
+                } else if (this.y < (this.maxScrollY - 10) && !pullUpEl.className.match('flip')) {
+                    pullUpEl.className = 'flip';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+                    pullUpEl.querySelector('.pullUpIcon').innerHTML = '<img src="public/images/load.gif" alt="" width="30">';
+                    this.maxScrollY = this.maxScrollY;
+                } else if (this.y > (this.maxScrollY + 10) && pullUpEl.className.match('flip')) {
+                    pullUpEl.className = '';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+                    this.maxScrollY = pullUpOffset;
+                }
+            },
+            onScrollEnd: function () {
+
+             if (pullUpEl.className.match('flip')) {
+                    pullUpEl.className = 'loading';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+                    if(addNum<sumL){
+                        pullUpAction(); // Execute custom function (ajax call?)
+
+                    }else{
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '已全部加载完成！';
+                        pullUpEl.querySelector('.pullUpIcon').innerHTML = '';
+                      
+                    }
+                }
+            }
+        });
+
+        setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+    }
+
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        return (r != null && r.length >= 2) ? decodeURI(r[2]) : null;
+    }
+
+    user();
+
+  /*ajax 数据加载*/
+
+    function user() {
+
+   var data = {"json":[{"id":"aa","src":"public/images/dog1.png","name":"汪星人","num":"1","vote":"134"},{"id":"bb","src":"public/images/dog2.png","name":"汪星人","num":"2","vote":"134"},{"id":"cc","src":"public/images/dog2.png","name":"汪星人","num":"3","vote":"134"},{"id":"dd","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"ee","src":"public/images/dog2.png","name":"汪星人","num":"3","vote":"134"},{"id":"ff","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"},{"id":"cc","src":"public/images/dog1.png","name":"汪星人","num":"3","vote":"134"}]}
+
+
+   userDataSum = data;
+   add(userDataSum)
+
+        /*$.ajax({
+            type:"get",
+            url:"test.json",
+            dataType:"json",
+            success: function (data) {
+                userDataSum = data;
+                add(userDataSum)
+            }
+        })*/
+    }
+
+    function add(data){
+        sumL = data.json.length;
+
+        //总的长度减去已加载的长度是否小于每次加载的长度
+        if ((sumL - addNum) < stepLength) {
+            stepLength = sumL % stepLength;
+        }
+        //每次加载的步长长度
+        addNum += stepLength;
+        if (addNum >= sumL) {
+            addNum = sumL;
+        }
+        var el, litext = "", i;
+        
+        el = $('#thelist');
+        
+        for( i = addNum - stepLength; i < addNum; i++){
+
+           var item = data.json[i];
+
+            litext += 
+
+               '<div class="col-xs-6" id="'+item.id+'">'
+               +'<div class="listSign">'
+               +'<p style="color:#FF6889">'+item.name+'</p>'
+               +'<p>'+item.num+'号</p>'
+               +'<img src=" '+item.src+' " alt="" width="100%" height="200px" onclick="loadMv(this)">'
+               +'<p style="color:#FF6889">'+item.vote+' 票</p>'
+               +'<p style="text-align: right;"><button onclick="vote(this)">投票</button></p>'
+               +'</div>'
+               +'</div>';
+               
+        }
+      
+        el.append(litext);
+
+        //TODO 首次添加数据以后调用（刷新滚动条高度）
+        refreshScrollBar();
+    }
+
+})(jQuery);
+
+</script>
+
+<script>
+
+/*投票 */
+   function vote(obj){
+     var ths = $(obj)
+     var id = ths.parents(".col-xs-6").attr("id")
+    
+     alert(id)
+ }
+
+/*点击图片看视频 */
+   function loadMv(obj){
+     var ths = $(obj)
+     var id = ths.parents(".col-xs-6").attr("id")
+    
+     alert(id)
+ }
+
+
+</script>

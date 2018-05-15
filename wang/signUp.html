@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+	  <link rel="stylesheet" type="text/css" href="public/bootstrap-3.3.4/css/bootstrap.min.css" />
+	  <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="public/webuploader/webuploader.css">
+    <title>报名</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;padding-bottom:46px;">
+          <div style="position: relative;">
+              <img src="public/images/sign1.png" alt="" width="100%" >
+              <div class="lookMV" id="lookMV"></div>
+          </div>
+
+         <!-- 登录表单 -->
+         <form action="" class="signForm">
+               <p>
+                  <input type="text" class="form-control" id="phone" maxlength="11"  placeholder="输入手机号" style="background:#FFF244;">
+               </p>
+                 <p>
+                   <input type="text" class="form-control" id="petName" placeholder="输入宠物名字" style="background:#FFF244;">
+               </p>
+               <p>
+                   <div id="cf_uploader" class="wu-example webuploader">
+                      <div id="thelist" class="uploader-list"></div>
+                      <div class="btns" style="text-align: center;">
+                          <div id="cf_picker" class="picker">选择萌宠图片</div>
+                          <button id="ctlBtn" type="button" class="btn btn-default">开始上传</button>
+                      </div>
+                      <div id="fileList"></div>
+                      <input type="hidden" name="identityCardFrontSrc" id="identityCardFrontSrc" value="">
+                  </div>
+               </p>
+
+                <p>
+                  <input type="text" class="form-control" id="vedioAdr" placeholder="输入短视频地址" style="background:#FFF244;">
+               </p>
+                <p>
+                  <input type="text" class="form-control" id="codePhone" maxlength="6" placeholder="输入验证码" style="width:48%;display:inline-block;">
+                  <input type="button" class="btn btn-default" id="sendCode" value="获取验证码" style="width:40%;float:right;background:#FFF;">
+                  <span  id="resetCode" class="resetCode"><span id="time"></span> 秒后重发</span>
+               </p>
+              <p>
+                  <button type="button" class="btn btn-default btn-block enroll" id="enroll">报 名</button>
+              </p>
+          </form>
+    </div>
+
+    <!-- 按钮组-->
+    <div class="app-fixedIndex">
+       <div class="col-xs-4 BTNgroup">
+          <a href="award.html"><img src="public/images/btn1.png" alt="" width="100%" ></a>
+       </div>
+       <div class="col-xs-4 BTNgroup">
+           <img src="public/images/btn5.png" alt="" width="100%" data-toggle="modal" data-target="#myModal">
+       </div>
+       <div class="col-xs-4 BTNgroup">
+           <a href="index.html"><img src="public/images/btn4.png" alt="" width="100%"></a>
+       </div>
+    </div>
+
+<!-- 活动规则 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">活动规则</h4>
+      </div>
+      <div class="modal-body">
+           <ul class="ruleCon">
+             <li>一、2018/5/1-5/8活动报名期，上传您的狗狗短视频地址（请使用抖音APP录制），七个工作日审核完毕后，入围视频将在点赞最萌汪星人区统一展示并且有10001短信通知。</li>
+             <li>二、2018/4/9-4/22视频投票期，一个电信手机号码只能投票一次。</li>
+             <li>三、2018/4/23-4/27公布获奖名单。</li>
+             <li>四、活动仅限湖北电信用户参加。</li>
+           </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 报名成功弹窗 -->
+<div class="hidefloor">  </div>
+<div class="signSucc">
+       <h4>报名成功！</h4>
+       <p>你的萌宠编号：878787</p>
+       <p>
+          七个工作日审核完毕后，将短信通知是否入围。您获得一次开奖机会
+          <a href="award.html"><span style="color:#FFCB2D;font-weight: bold;">点击开奖</span> </a>进入 
+       </p>
+ </div> 
+</body>
+</html>
+
+<script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="public/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/js/alert.js"></script>
+<script type="text/javascript" src="public/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="public/js/upload.js"></script>
+
+
+<!-- 观看视频 -->
+<script>
+   $("#lookMV").click(function(){
+
+      window.location.href="https://v.qq.com/"
+
+   })
+</script>
+
+<script>
+ 
+var isPhone = 1;
+
+/*点击发送验证码*/
+$("#sendCode").click(function(){
+  testPhone(); //验证手机号码
+if(isPhone){
+    resetCode(); //倒计时
+  }
+})
+
+//验证电信手机号
+function testPhone(){
+
+ var phoneval = $("#phone").val();
+
+  var pattern =  /^(133|153|177|180|181|189|173|199)\d{8}$/;
+
+   isPhone = 1;
+
+    if(phoneval == '') {
+        alert('请输入您的手机号');
+        isPhone = 0;
+        return false
+    }
+   else if(!pattern.test(phoneval)){
+        alert('请输入电信手机号');
+        isPhone = 0;  
+        return false 
+    }
+   else{  
+       return true;
+     }
+ }
+
+//倒计时
+function resetCode(){
+
+    alert("验证码已发送至您的手机")
+
+    $('#sendCode').hide();
+    $('#resetCode').show();
+
+  var second = 60;
+
+  $('#time').html(second);
+
+  var timer = null;
+  timer = setInterval(function(){
+    second -= 1;
+    if(second >0 ){
+      $('#time').html(second);
+    }else{
+      clearInterval(timer);
+      $('#sendCode').show();
+      $('#resetCode').hide();
+    }
+  },1000);
+}
+
+/*点击报名*/
+
+$("#enroll").click(function(){
+
+    testPhone();
+    var  fun=testPhone();
+
+    var codeNum = $("#codePhone").val();
+    var petName= $("#petName").val();
+    var vedioAdr= $("#vedioAdr").val();
+    
+    var phoneCode =888888;  //获取到的验证码
+
+    var pet = "7667dadeqw6";  //萌宠编号
+
+    if(fun==false){
+      alert("手机号输入错误")
+    }
+    else if(petName==""){
+      alert("请输入您的宠物名称")
+    }
+    else if(vedioAdr==""){
+      alert("请输入您的短视频地址")
+    }
+    else if(codeNum==""){
+      alert("请输入验证码")
+    }
+    else if(codeNum!=phoneCode){
+      alert("验证码输入错误")
+    }
+    else{
+
+     $(":text").val("");
+
+      $(".hidefloor").show();
+      $(".signSucc").show();
+     
+    }
+})
+
+</script>
+
+<!-- 图片上传 -->
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+
+           $("#cf_uploader").webUploads({
+               fileNumLimit:1,// 图片张数
+               pick:'#cf_picker',
+               //fileSingleSizeLimit:1024*1024*2,//2M
+               compress:{
+                   width: 800,
+                   height: 600,
+                   quality: 50,// 图片质量，只有type为`image/jpeg`的时候才有效。
+                   allowMagnify: false,// 是否允许放大，如果想要生成小图的时候不失真，此选项应该设置为false.
+                   crop: false,// 是否允许裁剪。
+                   preserveHeaders: true,// 是否保留头部meta信息。
+                   noCompressIfLarger: false,// 如果发现压缩后文件大小比原来还大，则使用原来图片 此属性可能会影响图片自动纠正功能
+                   compressSize: 0// 单位字节，如果图片大小小于此值，不会采用压缩。
+               },
+               uploadCompleteCallBack:function(fileListObj){
+                   var imgs=fileListObj.find('img');
+                   if(imgs.length>0){
+                       fileListObj.parent().find('input[type=hidden]').val(imgs.first().attr('data-src'));
+                   }else{
+                       fileListObj.parent().find('input[type=hidden]').val('')
+                   }
+               }
+           })
+
+            $("#orderinfo input[type=file]").change(function(){
+                var file = this.files[0];
+                // MegaPixImage constructor accepts File/Blob object.
+                var mpImg = new MegaPixImage(file);
+                // Render resized image into image element using quality option.
+                // Quality option is valid when rendering into image element.
+                var resImg = $(this).parents('td').first().find('img')[0];
+                mpImg.render(resImg, { maxWidth: 500, maxHeight: 400, quality: 0.8 });
+            });
+        });
+    })(jQuery)
+</script>
+

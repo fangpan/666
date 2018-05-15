@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+	  <link rel="stylesheet" type="text/css" href="public/bootstrap-3.3.4/css/bootstrap.min.css" />
+	  <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+    <title>开奖</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;padding-bottom:46px;">
+          <div style="position: relative;">
+              <img src="public/images/kaijbj.png" alt="" width="100%" >
+          </div>
+
+          <!-- 登录表单 -->
+          <form action="" class="awardForm">
+               <p>
+                  <input type="text" class="form-control" placeholder="输入手机号" id="phone" maxlength="11" style="background:#FFF244;">
+               </p>
+                <p>
+                  <input type="text" class="form-control" id="codePhone" maxlength="6" placeholder="输入验证码" style="width:48%;display:inline-block;">
+                  <input type="button" class="btn btn-default" id="sendCode" value="获取验证码" style="width:40%;float:right;background:#FFF;">
+                  <span  id="resetCode" class="resetCode"><span id="time"></span> 秒后重发</span>
+               </p>
+              <p>
+                <button type="button" class="btn btn-default btn-block enroll" id="getHor">开 奖</button>
+              </p>
+          </form>
+    </div>
+
+    <!-- 按钮组-->
+    <div class="app-fixedIndex">
+       <div class="col-xs-4 BTNgroup">
+          <img src="public/images/btn1.png" alt="" width="100%" >
+       </div>
+       <div class="col-xs-4 BTNgroup">
+           <a href="signUp.html"><img src="public/images/btn2.png" alt="" width="100%" ></a>
+       </div>
+       <div class="col-xs-4 BTNgroup">
+           <a href="http://61.183.0.29:8181/cfhd/offerIndex.htm"><img src="public/images/btn3.png" alt="" width="100%" ></a>
+       </div>
+    </div>
+
+<!-- 遮罩层 -->
+ <div class="hidefloor">  </div>
+
+<!-- 没有抽奖机会 -->
+ <div class="noChance">
+       <img src="public/images/nochance.png" alt="" width="100%" style="height:24rem;">
+       <img src="public/images/close.png" alt="" width="30px" class="closeImg">
+ </div>
+
+<!-- 没有中奖 -->
+ <div class="noHor">
+       <img src="public/images/nohor.png" alt="" width="100%" style="height:24rem;">
+       <img src="public/images/close.png" alt="" width="30px" class="closeImg">
+ </div>
+
+<!-- 中奖 -->
+ <div class="Hor">
+      <div style="position:relative;">
+         <img src="public/images/hor.png" alt="" width="100%" style="height:24rem;">
+         <span>100</span>
+       </div>
+       <img src="public/images/close.png" alt="" width="30px" class="closeImg">
+ </div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="public/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/js/alert.js"></script>
+<script>
+ 
+var isPhone = 1;
+
+/*点击发送验证码*/
+$("#sendCode").click(function(){
+  testPhone(); //验证手机号码
+if(isPhone){
+    resetCode(); //倒计时
+  }
+})
+
+//验证电信手机号
+function testPhone(){
+
+  var phoneval = $("#phone").val();
+  var pattern =  /^(133|153|177|180|181|189|173|199)\d{8}$/;
+   isPhone = 1;
+    if(phoneval == '') {
+        alert('请输入您的手机号');
+        isPhone = 0;
+        return false
+    }
+   else if(!pattern.test(phoneval)){
+        alert('请输入电信手机号');
+        isPhone = 0;  
+        return false 
+    }
+   else{  
+       return true;
+     }
+ }
+
+//倒计时
+function resetCode(){
+
+    alert("验证码已发送至您的手机")
+
+    $('#sendCode').hide();
+    $('#resetCode').show();
+
+  var second = 60;
+
+  $('#time').html(second);
+
+  var timer = null;
+  timer = setInterval(function(){
+    second -= 1;
+    if(second >0 ){
+      $('#time').html(second);
+    }else{
+      clearInterval(timer);
+      $('#sendCode').show();
+      $('#resetCode').hide();
+    }
+  },1000);
+}
+
+  /*点击开奖*/
+$("#getHor").click(function(){
+
+    var fun=testPhone();
+    var codeNum = $("#codePhone").val();
+    var phoneCode =888888;  //获取到的验证码
+
+   if(fun==false){
+      alert("手机号输入错误")
+    }
+    else if(codeNum==""){
+      alert("请输入验证码")
+    }
+    else if(codeNum!=phoneCode){
+      alert("验证码输入错误")
+    }
+    else{
+
+        $(":text").val("");
+        $(".hidefloor").show();
+         var flag = 2 ;
+
+         //没有抽奖机会
+          if(flag == 0){
+            
+              $(".noChance").show();
+          }
+          //没有中奖
+          else if(flag == 1){
+
+              $(".noHor").show();
+          }
+           //中奖
+          else if(flag == 2){
+
+              $(".Hor").show();
+          }
+    }
+  
+})
+
+/*关闭窗口*/
+$(".closeImg").click(function(){
+    $(".hidefloor").hide();
+    $(".noChance").hide();
+    $(".noHor").hide();
+    $(".Hor").hide();
+})
+
+</script>
+
+
+
+
