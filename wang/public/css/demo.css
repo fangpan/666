@@ -1,5 +1,8 @@
 input::-ms-input-placeholder{text-align: center;}
 input::-webkit-input-placeholder{text-align: center;}
+.search input::-ms-input-placeholder{text-align: left;}
+.search input::-webkit-input-placeholder{text-align: left;}
+
 
 input{
     outline: 0 none!important;
@@ -57,7 +60,7 @@ input{
 }
 .awardForm{
     background:url(../images/redcols.png) no-repeat center center;
-    background-size: 100%; 
+    background-size: 100% 100%; 
     width: 100%;
     padding:20px;
     padding-top: 10px;
@@ -172,11 +175,13 @@ input{
     margin:0 5%;
 }
 .search input{
-    text-align:center;
+    text-align:left;
     border:1px solid #000!important;
     border-radius: 8px!important;
     padding-right: 90px!important;
 }
+
+
 .enroll{
     background:#28D4FF!important;
     font-size:15px;
