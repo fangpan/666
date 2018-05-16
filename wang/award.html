@@ -13,7 +13,7 @@
 <body>
     <div class="container-fluid" style="padding:0;padding-bottom:46px;">
           <div style="position: relative;">
-              <img src="public/images/kaijbj.png" alt="" width="100%" >
+              <img src="public/images/kaijbj.png" alt="" width="100%" id="kaijbj">
           </div>
 
           <!-- 登录表单 -->
@@ -75,8 +75,16 @@
 <script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="public/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="public/js/alert.js"></script>
+
 <script>
- 
+var h1 = $("#kaijbj").height();
+var h2 = window.innerHeight;
+var H = h2-h1;
+
+$(".awardForm").css("min-height",H-50+"px")
+</script>
+
+<script>
 var isPhone = 1;
 
 /*点击发送验证码*/
