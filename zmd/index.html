@@ -193,6 +193,14 @@ var json =
 
   $('#shopIndex').append(h1);
 
+/* banner图判断 */
+  var SRC = $(".resBanner").attr("src");
+  if(SRC == "undefined" || SRC == ""){
+	$(".resBanner").addClass("resBannerActive");
+ }else{
+	$(".resBanner").removeClass("resBannerActive");
+ }	
+
 
 //产品为空时不显示title类型
  var a=$(".Contract").length;
