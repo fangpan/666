@@ -1,0 +1,46 @@
+<view class="container">
+
+  <!-- <import src="/template/navBar2.wxml" />     
+  <template is="header"/> -->
+
+  <view class="street"> 
+	<swiper class="swiper" wx:if="{{imgUrls.length>0}}" indicator-dots="{{indicatorDots}}"
+	  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+	  <block wx:for="{{imgUrls}}" wx:for-index="" wx:key="">
+	    <swiper-item style="text-align:center;">
+	      <image src="{{pathURL+item}}" class="slide-image" style="width:100%;height:100%;" />
+	    </swiper-item>
+	  </block>
+	</swiper>
+ </view>
+
+<view class="street"> 
+    <view class="title">展厅介绍</view>
+    <view wx:if="{{roomintroduce.length>0}}" style="font-size: 14px;color: #888;">{{ roomintroduce }}</view>
+    <view wx:else class="titleMSG">
+        暂无相关简介！
+    </view>
+</view>
+
+<view class="street" wx:if="{{audio.length>0}}"> 
+    <view class="title">音频资源</view>
+     <audio src="{{pathURL+ audio}}" binderror="audioerror" action="{{action}}" bindtimeupdate="timeupdateEvent" bindended="endEvent"></audio>
+    <view class="footer">
+      <view class="progress">
+        <text>{{timeText}}</text>
+      </view>
+        <view class="controls">
+          <image mode="scaleToFill" bindtap="actionEvent" src="/image/{{status === 'play' ? 'pause' : 'play'}}.png"></image>
+        </view>
+    </view>
+</view>
+
+<view class="street" wx:if="{{video.length>0}}"> 
+    <view class="title">视频资源</view>
+    <video id="myVideo" src="{{pathURL+ video}}" controls custom-cache="{{false}}" ></video>
+</view>
+
+</view>
+
+
+

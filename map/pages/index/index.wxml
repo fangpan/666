@@ -1,0 +1,15 @@
+<!--index.wxml-->
+
+  <view class="userinfo">
+     <view class='header'>
+        <image src='/image/index.png'></image>
+    </view>
+ 
+    <view class='content'>
+        <view style="font-size:34rpx;">申请获取以下权限</view>
+        <text>获得你的公开信息(昵称、头像等)</text>
+    </view>
+
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+  </view>
+
