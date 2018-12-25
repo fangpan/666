@@ -1,0 +1,13 @@
+<template name="header">
+ <view class="weui-navbar">
+        <view class="weui-navbar__item weui-bar__item_on">
+            展教联盟
+        </view>
+        <view class="weui-navbar__item" bindtap="changguan">
+            特色场馆
+        </view>
+         <view class="weui-navbar__item" bindtap="school">
+            社区科普大学
+        </view>
+    </view>
+</template>

@@ -1,0 +1,27 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/resources/resources",
+    "pages/resourcdetail/resourcdetail",
+    "pages/roomdetail/roomdetail",
+    "pages/changguan/changguan",
+    "pages/changguandetail/changguandetail",
+    "pages/changguanroomdetail/changguanroomdetail",
+    "pages/school/school",
+    "pages/communitylist/communitylist",
+    "pages/community/community",
+    "pages/course/course",
+    "pages/newinfor/newinfor",
+    "pages/infordetail/infordetail",
+    "pages/myself/myself",
+    "pages/logs/logs"   
+  ],
+  
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  }
+}
+

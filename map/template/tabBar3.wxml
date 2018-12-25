@@ -1,0 +1,22 @@
+<template name="footer">
+  <view class="weui-tabbar">
+    <view class="weui-tabbar__item" bindtap="resources">
+         <view>
+              <image src="/image/zy.png" alt="" class="weui-tabbar__icon1"></image>
+          </view>
+        <view class="weui-tabbar__label">科普资源</view>
+    </view>
+    <view class="weui-tabbar__item" bindtap="newinfor">
+         <view>
+              <image src="/image/zx.png" alt="" class="weui-tabbar__icon2"></image>
+          </view>
+        <view class="weui-tabbar__label">热点资讯</view>
+    </view>
+    <view class="weui-tabbar__item weui-bar__item_on" bindtap="myself">
+         <view>
+              <image src="/image/selfchoose.png" alt="" class="weui-tabbar__icon3"></image>
+          </view>
+        <view class="weui-tabbar__label">个人中心</view>
+    </view>
+  </view>
+</template>
