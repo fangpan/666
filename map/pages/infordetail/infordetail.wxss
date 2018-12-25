@@ -1,0 +1,22 @@
+
+image{
+   width:100%;
+}
+.title{
+   text-align:right;
+   margin-bottom:10px;
+   color:#666666;
+}
+.swiperCon{
+   height:240px;
+   margin-bottom:20px;
+}
+.hr{
+  border:1px solid #EEEEEE;
+  width:100%;
+  margin-bottom:20px;
+}
+.articleCon{
+    text-indent:32px;
+}
+

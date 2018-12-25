@@ -1,0 +1,22 @@
+
+<view class="container">
+    <view>
+        <view class="item" wx:for="{{moment}}" wx:for-index="" wx:key="" id="{{item.id}}" bindtap="loadDETAIL">
+            <image class="img" src="{{ pathURL+item.picture }}"></image>
+            <view class="text">
+                <text class="titlemsg">{{item.title}}</text>
+                <text class="description">{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="{{show? '' : 'listover'}}" style="text-align: center;color: #888;margin-top:10px;">
+          加载完成！
+    </view>
+    <!-- 回到顶部 -->
+    <image src='/image/top.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+<import src="/template/tabBar2.wxml" />     
+<template is="footer"/>
+    
+</view>
+
+

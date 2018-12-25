@@ -1,0 +1,123 @@
+<view class="container otherCon">
+
+ <!--  <import src="/template/navBar1.wxml" />     
+ <template is="header"/> -->
+
+  <map id="map"  scale="15" longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}" markers="{{markers}}" bindmarkertap="markertap" style="width: 100%; height: 350px;">
+     <cover-view class="mapLogo" bindtap="showLogoModel"> 
+           <cover-image class="logoImg" src='/image/yph.png'/> 
+           <cover-view class="logoTxt"> 科普一张图 </cover-view>
+     </cover-view>
+  </map>
+
+  <view style="display: inline-block;width: 100%;" >
+    <view class="gothere">  
+          <text style="display:block;color:#666;font-size:14px;">（点击坐标查看位置导航）</text> 
+    </view>
+ </view> 
+
+  <view class="street"> 
+    <view class="title">场馆介绍</view>
+    <view class="titleMSG" wx:if="{{markers[0].unitIntroduction.length>0}}">{{ markers[0].unitIntroduction }}</view>
+    <view wx:else class="titleMSG">
+        暂无相关简介！
+    </view>
+
+    	<swiper class="swiper" wx:if="{{imgUrls.length>0}}" indicator-dots="{{indicatorDots}}"
+    	  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    	  <block  wx:for="{{imgUrls}}" wx:for-index="" wx:key="">
+    	    <swiper-item style="text-align:center;">
+    	      <image src="{{pathURL+item}}" class="slide-image" style="width:100%;height:100%;" />
+    	    </swiper-item>
+    	  </block>
+    	</swiper>
+  </view>
+
+ <view class="street"> 
+    <view class="title">联系地址</view>
+    <view class="titleMSG" wx:if="{{markers[0].address.length>0}}">
+       {{ markers[0].address }}
+    </view>
+ </view>
+
+<view class="street"> 
+    <view class="title">参观指南</view>
+     <view wx:if="{{markers[0].openingHours.length>0}}">
+          <view style="font-weight:bold;font-size:13px;">开放时间</view>
+          <view class="listDetail">
+                <view style="font-size:13px;color:#666;text-indent:26px;">{{ markers[0].openingHours }}</view>
+          </view>
+    </view> 
+    <view wx:if="{{markers[0].ticketPrice.length>0}}">
+          <view style="font-weight:bold;font-size:13px;">门票信息</view>
+          <view class="listDetail">
+                <view style="font-size:13px;color:#666;text-indent:26px;">{{ markers[0].ticketPrice }}</view>
+          </view>
+    </view> 
+    <view wx:if="{{markers[0].consultingPhone.length>0}}">
+         <view style="font-weight:bold;font-size:13px;">咨询电话</view>
+         <view class="listDetail">
+               <view style="font-size:13px;color:#666;text-indent:26px;">{{ markers[0].consultingPhone }}</view>
+         </view>
+   </view> 
+    <view wx:if="{{markers[0].spectatorService.length>0}}">
+          <view style="font-weight:bold;font-size:13px;">观众服务</view>
+          <view class="listDetail">
+                <view style="font-size:13px;color:#666;text-indent:26px;">{{ markers[0].spectatorService }}</view>
+          </view>
+    </view> 
+    <view wx:if="{{markers[0].other.length>0}}">
+          <view style="font-weight:bold;font-size:13px;">其他</view>
+          <view class="listDetail">
+                <view style="font-size:13px;color:#666;text-indent:26px;">{{ markers[0].other }}</view>
+          </view>
+    </view> 
+</view>
+
+<view class="street" wx:if="{{audio.length>0}}"> 
+    <view class="title">音频资源</view>
+     <audio src="{{pathURL+ audio}}" binderror="audioerror" action="{{action}}" bindtimeupdate="timeupdateEvent" bindended="endEvent"></audio>
+    <view class="footer">
+      <view class="progress">
+        <text>{{timeText}}</text>
+      </view>
+        <view class="controls">
+          <image mode="scaleToFill" bindtap="actionEvent" src="/image/{{status === 'play' ? 'pause' : 'play'}}.png"></image>
+        </view>
+    </view>
+</view>
+
+<view class="street" wx:if="{{video.length>0}}"> 
+    <view class="title">视频资源</view>
+    <video id="myVideo" src="{{pathURL+ video}}" controls custom-cache="{{false}}" ></video>
+</view>
+
+<!-- 展厅列表 -->
+ <view class="zhantList">
+  <view class="title">展厅列表</view>
+  <view class="list {{idx>4 ? 'hideitem' : ''}} {{!showMore? '' : 'showmore'}}" wx:for="{{zhantingList}}" wx:for-item="item" wx:for-index="idx" wx:key="" bindtap="TOdetail" id="{{item.id}}" data-title="{{item.title}}">
+        <view class="weui-cell-list">
+            <view class="weui-cell__hd">
+                <image src="{{ pathURL+item.picture }}"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <view>{{item.title}}</view>
+                <view class="weui-media-box__desc" style="font-size:13px;color:#999;">{{item.content}}</view>
+            </view>
+        </view>
+  </view>
+
+  <block wx:if="{{zhantingList.length==0}}">
+      <view> 暂无展厅！ </view>
+ </block> 
+  <!-- 查看更多 -->
+ <block wx:if="{{zhantingList.length>5}}">
+      <view class="toogleBTN closeMore" wx:if="{{showMore}}"  bindtap='listToggle'>收起 </view>
+      <view class="toogleBTN openMore" wx:else bindtap='listToggle'> 查看更多 </view>
+ </block> 
+ </view>  <!-- 展盟列表 -->
+
+</view>
+
+
+
