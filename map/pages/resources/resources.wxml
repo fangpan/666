@@ -62,9 +62,6 @@
    </block> 
    </view>  <!-- 展盟列表 -->
 
- <import src="/template/tabBar1.wxml" />     
- <template is="footer"/>
-
 </view>
 
 

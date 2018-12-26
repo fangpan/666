@@ -16,7 +16,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-       wx.redirectTo({
+       wx.switchTab({
           url:'/pages/resources/resources'
         })
     } else if (this.data.canIUse){
@@ -27,7 +27,7 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-         wx.redirectTo({
+         wx.switchTab({
           url:'/pages/resources/resources'
         })
       }
@@ -52,7 +52,7 @@ Page({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
           })
-           wx.redirectTo({
+           wx.switchTab({
             url:'/pages/resources/resources'
           })
         }else{

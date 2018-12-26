@@ -176,7 +176,7 @@ Page({
 
 //跳转到展教联盟
  resources: function () {
-    wx.redirectTo({
+    wx.switchTab({
       url:'/pages/resources/resources'
     })
   },
@@ -185,20 +185,6 @@ Page({
  changguan: function () {
     wx.redirectTo({
       url:'/pages/changguan/changguan'
-    })
-  },
-
-  //跳转到资源信息列表
- newinfor: function () {
-    wx.redirectTo({
-      url:'/pages/newinfor/newinfor'
-    })
-  },
-
- //跳转到个人中心
- myself: function () {
-    wx.redirectTo({
-      url:'/pages/myself/myself'
     })
   },
 

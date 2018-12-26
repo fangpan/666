@@ -1,8 +1,5 @@
 <view class="container">
 
-  <!-- <import src="/template/navBar2.wxml" />     
-  <template is="header"/> -->
-
   <view class="street"> 
 	<swiper class="swiper" wx:if="{{imgUrls.length>0}}" indicator-dots="{{indicatorDots}}"
 	  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -37,7 +34,7 @@
 
 <view class="street" wx:if="{{video.length>0}}"> 
     <view class="title">视频资源</view>
-    <video id="myVideo" src="{{pathURL+ video}}" controls custom-cache="{{false}}" ></video>
+    <video id="myVideo" src="{{video}}" controls custom-cache="{{false}}" ></video>
 </view>
 
 </view>

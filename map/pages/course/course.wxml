@@ -1,8 +1,5 @@
 <view class="container otherCon">
 
- <!--  <import src="/template/navBar3.wxml" />     
- <template is="header"/> -->
-
 <swiper class="swiper" wx:if="{{imgUrls.length>0}}" indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:for-index="idx" wx:key="">
@@ -63,9 +60,8 @@
 
 <view class="street" wx:if="{{video.length>0}}"> 
     <view class="title">视频资源</view>
-    <video id="myVideo" src="{{pathURL+ video}}" controls custom-cache="{{false}}" ></video>
+    <video id="myVideo" src="{{video}}" controls custom-cache="{{false}}" ></video>
 </view>
-
 
 </view>
 

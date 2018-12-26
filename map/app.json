@@ -1,6 +1,5 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/resources/resources",
     "pages/resourcdetail/resourcdetail",
     "pages/roomdetail/roomdetail",
@@ -14,7 +13,8 @@
     "pages/newinfor/newinfor",
     "pages/infordetail/infordetail",
     "pages/myself/myself",
-    "pages/logs/logs"   
+    "pages/logs/logs",
+    "pages/index/index"
   ],
   
   "window":{
@@ -22,6 +22,30 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "",
     "navigationBarTextStyle":"black"
+  },
+   "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#009688",
+    "borderStyle": "white",
+    "list": [
+    {
+      "pagePath": "pages/resources/resources",
+      "text": "科普资源",
+      "iconPath": "image/zy.png",
+      "selectedIconPath": "image/zychoose.png"
+    }, 
+    {
+      "pagePath": "pages/newinfor/newinfor",
+      "text": "热点资讯",
+      "iconPath": "image/zx.png",
+      "selectedIconPath": "image/zxchoose.png"
+    }, 
+    {
+      "pagePath": "pages/myself/myself",
+      "text": "个人中心",
+      "iconPath": "image/self.png",
+      "selectedIconPath": "image/selfchoose.png"
+    }]
   }
 }
 

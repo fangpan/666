@@ -36,7 +36,26 @@ Page({
     })
   },
   onLoad: function () {
-      this.ajax();
+     // 判断用户登录信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }else{
+           wx.redirectTo({
+               url:'/pages/index/index' 
+             })
+        }
+      }
+    })
+    this.ajax();
   },
   //展示品牌
   showLogoModel:function(){
@@ -188,19 +207,7 @@ Page({
       url:'/pages/school/school'
     })
   },
- //跳转到资源信息列表
- newinfor: function () {
-    wx.redirectTo({
-      url:'/pages/newinfor/newinfor'
-    })
-  },
-
- //跳转到个人中心
- myself: function () {
-    wx.redirectTo({
-      url:'/pages/myself/myself'
-    })
-  },
+ 
 //查看更多
 listToggle: function () {
     this.setData({

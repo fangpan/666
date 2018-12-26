@@ -9,8 +9,4 @@
             <text style="float: right;">{{userName}}</text>
         </view>
     </view>
-
-<import src="/template/tabBar3.wxml" />     
-<template is="footer"/> 
-
 </view>

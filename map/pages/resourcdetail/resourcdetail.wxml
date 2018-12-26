@@ -1,8 +1,5 @@
 <view class="container otherCon">
 
- <!--  <import src="/template/navBar1.wxml" />     
- <template is="header"/> -->
-
   <map id="map"  scale="15" longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}" markers="{{markers}}" bindmarkertap="markertap" style="width: 100%; height: 350px;">
      <cover-view class="mapLogo" bindtap="showLogoModel"> 
            <cover-image class="logoImg" src='/image/yph.png'/> 
@@ -89,7 +86,7 @@
 
 <view class="street" wx:if="{{video.length>0}}"> 
     <view class="title">视频资源</view>
-    <video id="myVideo" src="{{pathURL+ video}}" controls custom-cache="{{false}}" ></video>
+    <video id="myVideo" src="{{video}}" controls custom-cache="{{false}}" ></video>
 </view>
 
 <!-- 展厅列表 -->

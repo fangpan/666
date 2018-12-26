@@ -6,15 +6,11 @@
   width: 100%;
   font-size:15px;
   height: 100%;
-  padding-bottom:65px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
 } 
-.otherCon{
-   padding-bottom:10px;
-}
 .mapLogo{
     position:absolute;
     bottom:56rpx;
@@ -352,7 +348,7 @@ audio{
   text-align: center;
 }
 .progress progress {
-  width: 76%;
+   width: 76%;
 }
 .controls {
     padding: 10px 0;

@@ -160,21 +160,7 @@ onReachBottom: function () {
   wx.navigateTo({
        url:'/pages/infordetail/infordetail?id='+id+'' 
      })
- },
-
-//跳转到展教联盟
- resources: function () {
-    wx.redirectTo({
-      url:'/pages/resources/resources'
-    })
-  },
-
- //跳转到个人中心
- myself: function () {
-    wx.redirectTo({
-      url:'/pages/myself/myself'
-    })
-  }
+ }
 
 })
 

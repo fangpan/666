@@ -40,11 +40,11 @@
    display: none;
 }
 .goTop{
-   height:80rpx;
-   width:80rpx;
-   position:fixed;
-   bottom:70px;
-   right:30rpx;
+  height:76rpx;
+  width:76rpx;
+  position:fixed;
+  bottom:30px;
+  right:30rpx;
 }
 
 

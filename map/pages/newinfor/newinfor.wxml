@@ -14,8 +14,6 @@
     </view>
     <!-- 回到顶部 -->
     <image src='/image/top.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
-<import src="/template/tabBar2.wxml" />     
-<template is="footer"/>
     
 </view>
 

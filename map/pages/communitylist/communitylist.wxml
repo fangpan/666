@@ -1,15 +1,6 @@
 <view class="container otherCon">
 
-  <!-- <import src="/template/navBar3.wxml" />     
-  <template is="header"/> -->
-
   <map id="map"  scale="{{scale}}" longitude="{{longitude}}" latitude="{{latitude}}" polygons="{{polygons}}" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="getScale" style="width: 100%; height: 350px;">
- <!-- <cover-view class="controlsL">
-      <cover-image class="" src='/image/plus.png'  bindtap="addScale" />
-  </cover-view>
-  <cover-view class="controlsR"> 
-      <cover-image class="" src='/image/minus.png' bindtap="minScale" />
-  </cover-view>   -->
       <cover-view class="mapLogo" bindtap="showLogoModel"> 
            <cover-image class="logoImg" src='/image/yph.png'/> 
            <cover-view class="logoTxt"> 科普一张图 </cover-view>
@@ -71,9 +62,6 @@
         <view class="toogleBTN openMore" wx:else bindtap='listToggle'> 查看更多 </view>
    </block> 
    </view>  <!-- 社区列表 -->
-    
-<!-- <import src="/template/tabBar1.wxml" />     
-<template is="footer"/> -->
 
 </view>
 

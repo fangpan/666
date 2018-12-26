@@ -83,34 +83,6 @@ Page({
     })
  },
 
-//跳转到展教联盟
- resources: function () {
-    wx.navigateTo({
-      url:'/pages/resources/resources'
-    })
-  },
-
-//跳转到特色场馆
- changguan: function () {
-    wx.navigateTo({
-      url:'/pages/changguan/changguan'
-    })
-  },
-
-  //跳转到资源信息列表
- newinfor: function () {
-    wx.navigateTo({
-      url:'/pages/newinfor/newinfor'
-    })
-  },
-
- //跳转到个人中心
- myself: function () {
-    wx.navigateTo({
-      url:'/pages/myself/myself'
-    })
-  },
-
 //查看更多
 listToggle: function () {
     this.setData({
