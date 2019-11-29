@@ -1,0 +1,18 @@
+
+<view class="container" style="padding-bottom: 20rpx;"> 
+  <view class="item" wx:for="{{moment}}" data-sc="{{item.sc}}" wx:key="" id="{{item.id}}" data-title="{{item.titleCh}}" bindtap="loadDETAIL">
+       <image class="img" wx:if="{{item.picture.length>0}}" src="{{ item.picture }}" mode="aspectFill"></image>
+       <image class="img" wx:else src="../../image/unfind.png" mode="aspectFill"></image>
+      <view class="info">
+          <text class="h2">{{item.name}}</text> 
+          <!-- <view class="weui-media-box__info">
+             <view class="weui-media-box__info__meta courseNum">3433</view> 
+             <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">武汉市科协</view>
+          </view>  -->
+        </view>
+  </view>
+  <!-- 回到顶部 -->
+  <image src='/image/top.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+</view>
+
+

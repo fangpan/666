@@ -1,0 +1,64 @@
+/* pages/newinfor/newinfor.wxss */
+
+.item {
+  height:160rpx;
+  margin:20rpx 10rpx;
+  overflow:hidden;
+  border-bottom:1px solid #ddd;
+  padding:10px 0;
+}
+.item .img {
+  width:200rpx;
+  margin-right:20rpx;
+  float:left;
+  height:160rpx;
+
+}
+.titlemsg {
+  display: block;
+  margin: 0 auto;
+  line-height:1.4;
+  font-size:30rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  padding-right: 6px;
+}
+.description {
+  font-size: 13px;
+  color:#666666;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  margin-top:6px;
+}
+.listover{
+   display: none;
+}
+.goTop{
+  height:76rpx;
+  width:76rpx;
+  position:fixed;
+  bottom:30px;
+  right:30rpx;
+}
+
+.seeNum{
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC80lEQVRYR81X3XEaMRDePY95JhWEDkIqCB2YdHD2WBo/kg5wBcZvjOSHcwXBFYRUEKcCOxWYvIrhNvNdJOc434+A/GnmhgFO2m93v939xPSPF+9qX2s9JqI3IjIgIjzEzCsiuieiR+fcXZZl+B61ogBcXFwM8jy/EpERM38jogURrfI8h1EAGOARkSEzn4jIPTPPjDG3XShaAaRp2j8+Pr5i5vdENEuSJJvP549dhyJKIjIjogcRuby5uVk27WkEoJQaEtEnZr52zs12CWswppRKEQkRmVhrszoQtQCwkYimeJo2IjoxoOAIM2ci8sVae1oF8QKA9xw5HltrixxXl9Z6Aj5Ya0HIzgWwvV4PaciMMUjN89oC4HP+QEQfmjzHTq311AMYdVr3L3giw6HUGAMHi7UFQGuNUK2stZO2g/cBgPPOz89RRZm1tijfLQABoXNu0JXbfQHAoFJqycxLYww49isC8B6NJPzxJyKAM4Ojxph+FcAqSZJhZJ3vzIGyQ1prcGEKLhQc8O0VP6D2O9chKfD2UEUDcC0AKPIRE/59q6DslScjesyoAKCUmmGg/C0Avi88GWM4AFiKyLStZ1dyeBAHfBTl/wHgS/C+2iab2HgoCV+kAAfuQkLPmRP09s6S+UnuyyoJkySBXhgGDmD6YfhEDZezs7NJkiQTZu7UBjB8dHSUlvuLH9MjY0xaAAghcc696mrDMR53vaOUwjBaYOA9D6Pyj10HHPJ/1dlnAHWT6hBDTXs9f/oI/9YsKE2qRWw17AqwbuJu6QEvn9CUoHZq1dCuRsP7XuxAY96VO26dJCv04Hq9Hv5OQvpeg5IsQh9WkyiFbntHRKeHRqIk7d8650ZVp9pkeSGp8zwfx86IanqQ881m85GZvzrnJnURbb2YhMqIuWCUjVcvNG1TNupqFi4YRPSEBiIiaCTfQ3q8p6+JCIJmzMxQy7dNXndyoKWGYQAkwifugzBaLBH57Fvzwjm3jCVwVAT2Lb2YfT8AX/PvMH3kyD4AAAAASUVORK5CYII=");
+  background-size: 32rpx 32rpx;
+  -moz-background-size:32rpx 32rpx;
+  padding-left: 8%;
+  background-repeat:no-repeat;
+  background-position-y:center;
+}
+
+.weui-media-box__info {
+   color: #666;
+   font-size: 26rpx;
+   line-height: 1.5em;
+}
+

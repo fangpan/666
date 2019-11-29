@@ -1,0 +1,75 @@
+/* pages/activity/activity.wxss */
+
+
+/* pages/newinfor/newinfor.wxss */
+
+.goTop{
+  height:76rpx;
+  width:76rpx;
+  position:fixed;
+  bottom:30px;
+  right:30rpx;
+}
+
+.item{
+  overflow:hidden;
+  position:relative;
+  border-radius:8rpx;
+  width:96%;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  margin: 10px 0 20px 2%;
+
+}
+.item .img{
+  width:100%;
+  height:350rpx;
+  vertical-align:bottom;
+}
+.item .info {
+  color:#fff;
+  position:absolute;
+  top:0%;
+  left:10%;
+  height:100%;
+  width:80%;
+  z-index:1;
+  box-sizing:border-box;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.info .h2{
+  font-size:32rpx;
+  font-weight:600;
+  text-shadow:2rpx 2rpx rgba(0,0,0,.4);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:2;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+}
+
+.weui-media-box__info {
+   line-height: 18px;
+   color:#ffffff;
+}
+
+.courseNum{
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB4UlEQVRYR+1VwU3DQBCcqQCoAKgAqACogNABVECoAKiAUAHQQVIBpIOkA6iAUMGisc7WeX1nX/jk45WsRLJvd3Zm9pbYcXDH9TECGBkYGdiKATM7BXAF4AKA/u8D2ABYAfgC8AlgSVL/i6IIgJlNADyEoiWJ3wA8lQDpBWBmRwBeQ8e+8DJ0LgbEyHkC2SwA0TfJyAIIdH8EmuPDCwBT352ZSY5HAHeukuS5JanfTiQBmNlN6NwfEK0qko2eswIhaVrRAdCTYEFSXkDoVp2KeoXM90KyotrMRL1nQq86IFoAeorr8LFoD8UljaYgDlF8KRDhm58MTS0QDYCB4muSVUEzmwJ4ziRvJDIzsZIyZouJGIBm9zCTWLNd0T2QOP5OXtHopmJD8kAvdgUAJKvaMYA+xCuSZwUSyIiSqJgpb8Kce70Jpe+J43atqSgw4bcMXE/MNmM4J3kdjaE6jcdwFo1hjs3fALK5lHIXkRLPAey5Lu9JiqVs9ExTp3jLAz5j2AO6ufwoCZiAtDZedDmlbkrJM0ktp8FtGOZeST0b8oEehRir5fC9NMZM0TYIwGku3T2QnBzvWk5DK7kIQF0h0Kx9oEfbr5ZH+spY9SPDZldwjHgrAH3m+++7EcDIwM4Z+AOmvdgh+iykXAAAAABJRU5ErkJggg==");
+  background-size: 18px 16px;
+  -moz-background-size:18px 16px;
+  padding-left: 20px;
+  background-repeat:no-repeat;
+  background-position-y:center;
+}
+
+.weui-loadmore_line{
+   margin-top: 3.4em;
+}
+
+
+
+

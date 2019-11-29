@@ -1,0 +1,83 @@
+<!--pages/activityDetail/activityDetail.wxml-->
+
+<view class="container otherCon" style="padding-bottom:120rpx;">
+
+<swiper class="swiper" wx:if="{{imgUrls.length>0}}" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:for-index="idx" wx:key="">
+      <swiper-item style="text-align:center;">
+        <image src="{{ item }}" class="slide-image" mode="aspectFill" style="width:100%;height:100%;" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+<view class="street"> 
+    <view class="title">课程时长</view>
+    <view class="titleMSG" wx:if="{{time.length>0}}">
+        {{ time }}
+    </view>
+    <view wx:else class="titleMSG">
+        暂无课程时间安排！
+    </view>
+</view>
+
+<view class="street"> 
+    <view class="title">课程人数</view>
+    <view class="titleMSG" wx:if="{{lecturer.length>0}}">
+        {{ lecturer }}
+    </view>
+    <view wx:else class="titleMSG">
+        暂无相关简介！
+    </view>
+</view>
+
+<view class="street"> 
+    <view class="title">适宜年龄</view>
+    <view class="titleMSG" wx:if="{{telephone.length>0}}">
+    {{ telephone }}
+    </view>
+    <view wx:else class="titleMSG">
+        暂无介绍！
+    </view>
+</view>
+
+<view class="street"> 
+    <view class="title">课程地点安排</view>
+    <view class="titleMSG" wx:if="{{unitIntroduction.length>0}}">
+        {{ unitIntroduction }}
+    </view>
+    <view wx:else class="titleMSG">
+        暂无相关简介！
+    </view>
+</view>
+
+<view class="street" style="clear: both;"> 
+    <view class="title">活动介绍</view>
+    <view wx:if="{{courseIntroduction.length>0}}" class="titleMSG">{{ courseIntroduction }}</view>
+     <view wx:else class="titleMSG">
+        暂无相关介绍！
+    </view>
+</view>
+
+<view class="street" style="clear: both;"> 
+    <view class="title">关于我们</view>
+    <view class="titleMSG">
+    2016年6月习近平总书记在全国科技创新大会、中国科学院第十八次院士大会和中国工程院第十三次院士大会、中国科学技术协会第九次全国代表大会（“科技三会”）上指出，科技创新、科学普及是实现创新发展的两翼，要把科学普及放在与科技创新同等重要的位置。没有全民科学素质普遍提高，就难以建立起宏大的高素质创新大军，难以实现科技成果快速转化。
+    </view>
+    <view class="titleMSG">
+       2018年中国科学技术协会印发的《中国科协2018年科普工作要点》指出，要深入推进“科普中国•百城千校万村行动”和“科普文化进万家”活动，要以社区群众多样化的科普需求为导向，着力提升科普公共服务能力，创新发展科普活动品牌。
+    </view>
+    <view class="titleMSG">
+       人类文明的进步、社会的发展与地球科学、物质科学、生命科学等密切关联，以矿物、化石和地质遗迹为主要内容的自然遗产是地球科学的重要载体，地质地理、自然生态、历史人文、高新技术、健康医疗、国防军事等正是科学普及的基础和主体。
+    </view>
+    <view class="titleMSG">
+      为了让这些科普知识在生活中能极大培养我们学科学、爱科学、用科学的良好品质和基本的生活常识，来保障我们的人身安全、提高我们对生活常识的认识，由武汉科协主办，游品慧承办的“江城智慧科普行”主题科普活动在2019年11月正式上线。
+    </view>
+</view>
+
+</view>
+
+<button class="weui-btn baomBtn" type="primary" bindtap="baoming">我要报名</button>
+
+
+

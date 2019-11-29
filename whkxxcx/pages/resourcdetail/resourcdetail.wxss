@@ -1,0 +1,6 @@
+
+.zhiNanTips{
+     font-weight:bold;
+     font-size:13px;
+     margin-top: 4px;
+}

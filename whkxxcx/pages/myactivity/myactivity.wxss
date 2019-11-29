@@ -1,0 +1,33 @@
+/* pages/myactivity/myactivity.wxss */
+
+.notlike{
+	text-align: center;
+	margin-top: 300rpx;
+	font-size: 32rpx;
+}
+
+.weui-cells{
+	font-size: 28rpx;
+}
+
+.weui-cell__ft{
+	margin-left: 50rpx;
+	color:#666666;
+}
+.weui-cell{
+	margin:10rpx 0;
+}
+.item-img{
+	width: 160rpx!important;
+	height: 120rpx!important;
+}
+
+.stateColor{
+	color: #1aad19;
+}
+.stateColor2{
+	color: #ff9600;
+}
+.stateColor3{
+	color: #ff0000;
+}
