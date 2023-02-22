@@ -1,8 +1,0 @@
-<!--pages/welcome/welcome.wxml-->
-
-<view class="container">
-     <image src='/image/timg.png' animation="{{animationWEL}}" class="welIMG" mode="scaleToFill" style="height: 100%;"></image>
-</view>
-
-
-
